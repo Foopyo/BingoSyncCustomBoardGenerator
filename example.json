@@ -1,0 +1,38 @@
+[
+	{ "name":"A really specific goal"},
+	{
+		"name":"A goal where you need to do #",
+		"list":[
+			"Objective A",
+			"Objective B",
+			"Objective C",
+			"Objective D"
+		]
+	},
+	{
+		"name":"A goal where you need $ things",
+		"min":1,
+		"max":100
+	},
+	{ "name":"A really specific goal 4"},
+	{ "name":"A really specific goal 5"},
+	{ "name":"A really specific goal 6"},
+	{ "name":"A really specific goal 7"},
+	{ "name":"A really specific goal 8"},
+	{ "name":"A really specific goal 9"},
+	{ "name":"A really specific goal 10"},
+	{ "name":"A really specific goal 12"},
+	{ "name":"A really specific goal 13"},
+	{ "name":"A really specific goal 14"},
+	{ "name":"A really specific goal 15"},
+	{ "name":"A really specific goal 16"},
+	{ "name":"A really specific goal 17"},
+	{ "name":"A really specific goal 18"},
+	{ "name":"A really specific goal 19"},
+	{ "name":"A really specific goal 20"},
+	{ "name":"A really specific goal 21"},
+	{ "name":"A really specific goal 22"},
+	{ "name":"A really specific goal 23"},
+	{ "name":"A really specific goal 24"},
+	{ "name":"A really specific goal 25"},
+]
