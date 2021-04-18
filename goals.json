@@ -34,11 +34,11 @@
 			"Marsh Burrow Area Gauntlet",
 			"Double Jump Tree Approach",
 			"Wellspring Wheel Room Access",
-			"Pools Water Dash Fight Room"
+			"Pools Water Dash"
 		]
 	},
 	{
-		"name":"Buy #",
+		"name":"Buy # from Opher",
 		"list":[
 			"Exploding Spike",
 			"Shock Smash",
@@ -58,21 +58,26 @@
 		"max":8
 	},
 	{
+		"name":"Buy $ items from Opher",
+		"min":2,
+		"max":8
+	},
+	{
 		"name":"Break $ Willow Hearts",
 		"min":2,
 		"max":8
 	},
 	{
-		"name":"Break the Willow Heart",
+		"name":"Break the # Willow Heart",
 		"list":[
 			"Wind Spinners",
 			"Spinning Lasers",
-			"Upper Heart",
-			"Burrow Heart",
+			"Upper",
+			"Burrow",
 			"Willow Laser",
 			"Redirect Puzzle",
-			"Boulder Escape Heart",
-			"Lower Left Heart"
+			"Boulder Escape",
+			"Lower Left"
 		]
 	},
 	{
@@ -136,7 +141,7 @@
 		"list":[
 			"Kwolok",
 			"Mora",
-			"HOrnbug",
+			"Hornbug",
 			"Shriek",
 			"Willow Laser",
 			"Howl"
@@ -209,20 +214,20 @@
 		]
 	},
 	{
-		"name":"Open the # door",
+		"name":"Open the # Door",
 		"list":[
-			"Light Burst Tree Door",
-			"Reach Trial Door",
-			"Regen Tree Door",
-			"Howl's Den Door",
-			"Luma Pools Door",
-			"Eyestone Door",
-			"Mouldwood Entry Door",
-			"Mouldwood Lower Door",
-			"Silent Woods West Door",
-			"Silent Woods East Door",
-			"Midnight Burrows Door",
-			"Windswept Wastes Door"
+			"Light Burst Tree",
+			"Reach Trial",
+			"Regen Tree",
+			"Door Skip",
+			"Water Dash Tree",
+			"Eyestone",
+			"Mouldwood Entry",
+			"Mouldwood Lower",
+			"Silent Woods West",
+			"Silent Woods East",
+			"Midnight Burrows",
+			"Windswept Wastes"
 		]
 	},
 	{
@@ -268,7 +273,7 @@
 			"Kwolok's Wisdom",
 			"The Silent Map",
 			"Breaking the Mould",
-			"Lost in ",
+			"Lost in Paradise",
 			"The Highest Reach",
 			"Beneath Shifting Sands",
 			"Hand to Hand",
@@ -280,7 +285,7 @@
 		"name":"Get this pickup #",
 		"list":[
 			"Marsh Burrow Fight Shard",
-			"Howl's Den Door HC",
+			"Left Howl's Den Door HC",
 			"Right Launch Tree EX",
 			"Lower Depths Swim EC",
 			"Wastes Sand Puzzle Shard",
@@ -298,10 +303,10 @@
 		"name":"Trade for #",
 		"list":[
 			"some Soup (Glades)",
-			"Trade for a Comfy Hat (Reach)",
-			"Trade for a Lantern (Glades)",
-			"Trade for some Silk (Depths)",
-			"Trade for a Spyglass (Pools)"
+			"a Comfy Hat (Reach)",
+			"a Lantern (Glades)",
+			"some Silk (Depths)",
+			"a Spyglass (Pools)"
 		]
 	},
 ]
