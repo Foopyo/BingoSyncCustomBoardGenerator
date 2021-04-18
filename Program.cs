@@ -40,24 +40,95 @@ namespace BingoBoardGenerator
         static void Main(string[] args)
         {
             Random r = new Random();
-            string goalsString = File.ReadAllText("goals.json");
-            List<Goal> goals = JsonConvert.DeserializeObject<List<Goal>>(goalsString);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Reading goals.json");
+            string goalsString = "";
+            try
+            {
+                goalsString = File.ReadAllText("goals.json");
+            }
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error when reading goals.json: " + e.ToString());
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Press a key to exit");
+                Console.ReadKey();
+                return;
+            }
+            List<Goal> goals = null;
+            try
+            {
+                goals = JsonConvert.DeserializeObject<List<Goal>>(goalsString);
+                if(goals.Count < 25)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("goals.json needs at least 25 different goals. There is currently only " + goals.Count + " specified in this file.");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine("Press a key to exit");
+                    Console.ReadKey();
+                    return;
+                }
+            }
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error while deserializing goals.json: " + e.ToString());
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Press a key to exit");
+                Console.ReadKey();
+                return;
+            }
             List<GoalBoard> board = new List<GoalBoard>();
 
-            for (int i2 = 0; i2 < 25; i2++)
+            try
             {
-                int iGoal = r.Next(0, goals.Count);
-                board.Add(new GoalBoard(goals[iGoal]));
-                goals.RemoveAt(iGoal);
+                for (int i2 = 0; i2 < 25; i2++)
+                {
+                    Console.WriteLine("Select goal number " + (i2 + 1));
+                    int iGoal = r.Next(0, goals.Count);
+                    board.Add(new GoalBoard(goals[iGoal]));
+                    goals.RemoveAt(iGoal);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error while selecting goals for the board: " + e.ToString());
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Press a key to exit");
+                Console.ReadKey();
+                return;
             }
 
-            int i = 0;
-            string outputFile = "Bingo_";
-            while (File.Exists(outputFile + i.ToString() + ".json"))
+            string outputFile;
+
+            try
             {
-                i++;
+                int i = 0;
+                outputFile = "Bingo_"; ;
+                while (File.Exists(outputFile + i.ToString() + ".json"))
+                {
+                    i++;
+                }
+                outputFile += i.ToString() + ".json";
+                File.WriteAllText(outputFile, JsonConvert.SerializeObject(board));
             }
-            File.WriteAllText(outputFile + i.ToString() + ".json", JsonConvert.SerializeObject(board));
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error while creating the bingo board file: " + e.ToString());
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Press a key to exit");
+                Console.ReadKey();
+                return;
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Bingo board " + outputFile + " successfully created!");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Press a key to exit");
+            Console.ReadKey();
+            return;
         }
     }
 }
