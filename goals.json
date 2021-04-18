@@ -1,38 +1,307 @@
 [
-	{ "name":"A really specific goal"},
 	{
-		"name":"A goal where you need to do #",
+		"name":"Buy $ Maps",
+		"min":2,
+		"max":8
+	},
+	{
+		"name":"Buy the # Map",
 		"list":[
-			"Objective A",
-			"Objective B",
-			"Objective C",
-			"Objective D"
+			"Inkwater Marsh",
+			"Midnight Burrows",
+			"Kwoloks Hollow",
+			"The Wellspring",
+			"Luma Pools",
+			"Baurs Reach",
+			"Mouldwood Depths",
+			"Windswept Wastes",
+			"Willows End",
+			"Wellspring Glades",
+			"Silent Woods"
+		]
+	},
+	{ "name":"Spin the Wheel outside Pools"},
+	{ "name":"Drop the rock next to Baur"},
+	{ "name":"Roll the Snowball in Reach"},
+	{ "name":"Drain Kwolok's Hollow"},
+	{ "name":"Buy Triple Jump from Twillen"},
+	{
+		"name":"Complete the # Fight Room",
+		"list":[
+			"Ridge Elevator Ride",
+			"Reach Escape Access",
+			"Marsh Cave Lizard Door",
+			"Marsh Burrow Area Gauntlet",
+			"Double Jump Tree Approach",
+			"Wellspring Wheel Room Access",
+			"Pools Water Dash Fight Room"
 		]
 	},
 	{
-		"name":"A goal where you need $ things",
-		"min":1,
-		"max":100
+		"name":"Buy #",
+		"list":[
+			"Exploding Spike",
+			"Shock Smash",
+	        "Static Star",
+	        "Charge Blaze",
+	        "Sentry Speed"
+		]
 	},
-	{ "name":"A really specific goal 4"},
-	{ "name":"A really specific goal 5"},
-	{ "name":"A really specific goal 6"},
-	{ "name":"A really specific goal 7"},
-	{ "name":"A really specific goal 8"},
-	{ "name":"A really specific goal 9"},
-	{ "name":"A really specific goal 10"},
-	{ "name":"A really specific goal 12"},
-	{ "name":"A really specific goal 13"},
-	{ "name":"A really specific goal 14"},
-	{ "name":"A really specific goal 15"},
-	{ "name":"A really specific goal 16"},
-	{ "name":"A really specific goal 17"},
-	{ "name":"A really specific goal 18"},
-	{ "name":"A really specific goal 19"},
-	{ "name":"A really specific goal 20"},
-	{ "name":"A really specific goal 21"},
-	{ "name":"A really specific goal 22"},
-	{ "name":"A really specific goal 23"},
-	{ "name":"A really specific goal 24"},
-	{ "name":"A really specific goal 25"},
+	{
+		"name":"Break $ Wellspring blobs",
+		"min":2,
+		"max":8
+	},
+	{
+		"name":"Buy $ items from Twillen",
+		"min":2,
+		"max":8
+	},
+	{
+		"name":"Break $ Willow Hearts",
+		"min":2,
+		"max":8
+	},
+	{
+		"name":"Break the Willow Heart",
+		"list":[
+			"Wind Spinners",
+			"Spinning Lasers",
+			"Upper Heart",
+			"Burrow Heart",
+			"Willow Laser",
+			"Redirect Puzzle",
+			"Boulder Escape Heart",
+			"Lower Left Heart"
+		]
+	},
+	{
+		"name":"Get $ Trees",
+		"min":4,
+		"max":11
+	},
+	{
+		"name":"Get # Tree",
+		"list":[
+			"Sword",
+			"Double Jump",
+			"Regenerate",
+			"Bow",
+			"Dash",
+			"Grapple",
+			"Water Dash",
+			"Flash",
+			"Grenade",
+			"Burrow",
+			"Launch",
+			"Ancestral Light (Glades)",
+			"Ancestral Light (Burrows)"
+		]
+	},
+	{
+		"name":"Activate $ Spirit Trials",
+		"min":2,
+		"max":6
+	},
+	{
+		"name":"Activate # Spirit Trial",
+		"list":[
+			"Baur's Reach",
+			"Winddswept Wastes",
+			"Inkwater Marsh",
+			"Kwolok's Hollow",
+			"Luma Pools",
+			"Mouldwood Depths",
+			"Silent Woods",
+			"The Wellspring"
+		]
+	},
+	{
+		"name":"Collect $ Wisps",
+		"min":2,
+		"max":5
+	},
+	{
+		"name":"Collect this Wisp #",
+		"list":[
+			"Strength (Pools)",
+			"Memory (Reach)",
+			"Eyes (Depths)",
+			"Voice (Hollow)",
+			"Heart (Wastes)"
+		]
+	},
+	{
+		"name":"Defeat #",
+		"list":[
+			"Kwolok",
+			"Mora",
+			"HOrnbug",
+			"Shriek",
+			"Willow Laser",
+			"Howl"
+		]
+	},
+	{
+		"name":"Complete # Escape",
+		"list":[
+			"Baur's Reach",
+			"The Wellspring",
+			"Windtorn Ruins"
+		]
+	},
+	{
+		"name":"Plant $ Seeds",
+		"min":2,
+		"max":6
+	},
+	{
+		"name":"Plant the Seed from #",
+		"list":[
+			"Depths",
+			"Wastes",
+			"Pools",
+			"Wellspring",
+			"Reach",
+			"Woods"
+		]
+	},
+	{
+		"name":"Get $ Health",
+		"min":5,
+		"max":15
+	},
+	{
+		"name":"Get $ Energy",
+		"min":5,
+		"max":15
+	},
+	{
+		"name":"Collect $ Gorlek Ore",
+		"min":6,
+		"max":30
+	},
+	{
+		"name":"Collect $ Keystones",
+		"min":2,
+		"max":8
+	},
+	{
+		"name":"Melt $ Ice barriers",
+		"min":1,
+		"max":4
+	},
+	{
+		"name":"Light $ lanterns",
+		"min":1,
+		"max":4
+	},
+	{
+		"name":"Scatter $ leaf piles",
+		"min":1,
+		"max":5
+	},
+	{
+		"name":"Ring the bells #",
+		"list":[
+			"(forwards)",
+			"(backwards)"
+		]
+	},
+	{
+		"name":"Open the # door",
+		"list":[
+			"Light Burst Tree Door",
+			"Reach Trial Door",
+			"Regen Tree Door",
+			"Howl's Den Door",
+			"Luma Pools Door",
+			"Eyestone Door",
+			"Mouldwood Entry Door",
+			"Mouldwood Lower Door",
+			"Silent Woods West Door",
+			"Silent Woods East Door",
+			"Midnight Burrows Door",
+			"Windswept Wastes Door"
+		]
+	},
+	{
+		"name":"Activate $ Teleporters",
+		"min":4,
+		"max":16
+	},
+	{
+		"name":"Activate the # Teleporter",
+		"list":[
+			"Midnight Burrows",
+			"Howl's Den",
+			"Wellspring",
+			"Baur's Reach",
+			"Kwolok's Hollow",
+			"Mouldwood Depths",
+			"West Woods",
+			"East Woods",
+			"West Wastes",
+			"East Wastes",
+			"Outer Ruins",
+			"Willow's End",
+			"Inner Ruins",
+			"East Luma",
+			"West Luma",
+			"Shriek",
+			"Inkwater Marsh",
+			"Glades"
+		]
+	},
+	{
+		"name":"Complete this Quest #",
+		"list":[
+			"The Silent Teeth",
+			"The Missing Key",
+			"Into the Burrows",
+			"The Lost Compass",
+			"A Little Braver",
+			"Family Reunion",
+			"The Tree Keeper",
+			"A Diamond in the Rough",
+			"Into The Darkness",
+			"Kwolok's Wisdom",
+			"The Silent Map",
+			"Breaking the Mould",
+			"Lost in ",
+			"The Highest Reach",
+			"Beneath Shifting Sands",
+			"Hand to Hand",
+			"Rebuilding the Glades",
+			"Regrowing the Glades"
+		]
+	},
+	{
+		"name":"Get this pickup #",
+		"list":[
+			"Marsh Burrow Fight Shard",
+			"Howl's Den Door HC",
+			"Right Launch Tree EX",
+			"Lower Depths Swim EC",
+			"Wastes Sand Puzzle Shard",
+			"Reach Hut Seed",
+			"Woods Race End Shard",
+			"Above East Pools TP HC",
+			"Wellspring Escape Revisit EX",
+			"Glades Burrow Swim HC",
+			"Above Depths Entry EX",
+			"Wellspring Wheel Room Ore",
+			"Burrows Tablet"
+		]
+	},
+	{
+		"name":"Trade for #",
+		"list":[
+			"some Soup (Glades)",
+			"Trade for a Comfy Hat (Reach)",
+			"Trade for a Lantern (Glades)",
+			"Trade for some Silk (Depths)",
+			"Trade for a Spyglass (Pools)"
+		]
+	},
 ]
