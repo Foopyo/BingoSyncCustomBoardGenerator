@@ -3,7 +3,7 @@ Generate boards for custom games for [Bingosync](https://bingosync.com/)
 There isn't any weight algorithm so this generator is better suited for lockout bingos.
 
 # How to use
-Simply download [the last release](https://github.com/Foopyo/BingoSyncCustomBoardGenerator/releases), unzip it and launch `setup.exe`. Then, go to hte installation folder and launch `BingoBoardGenerator.exe`.
+Simply download [the last release](https://github.com/Foopyo/BingoSyncCustomBoardGenerator/releases), unzip it and launch `setup.exe`. Then, go to the installation folder and launch `BingoBoardGenerator.exe`.
 
 # Editing the goals
 If you are using this tool for another game than Ori and the Will of the Wisps you will have to edit the goals, which are set in the file `goals.json`. You need at least 25 different goals in your `goals.json` file in order for this tool to work.
