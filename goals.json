@@ -25,6 +25,21 @@
 	{ "name":"Roll the Snowball in Reach"},
 	{ "name":"Drain Kwolok's Hollow"},
 	{
+		"name":"Collect $ shards",
+		"min":4,
+		"max":25
+	},
+	{
+		"name":"Fully upgrade $ shards",
+		"min":2,
+		"max":8
+	},
+	{ 
+		"name": "Upgrade $ times your shards",
+		"min": 3,
+		"max": 15
+	},
+	{
 		"name":"Buy $ items from Twillen",
 		"min":2,
 		"max":8
