@@ -24,7 +24,39 @@
 	{ "name":"Drop the rock next to Baur"},
 	{ "name":"Roll the Snowball in Reach"},
 	{ "name":"Drain Kwolok's Hollow"},
-	{ "name":"Buy Triple Jump from Twillen"},
+	{
+		"name":"Buy $ items from Twillen",
+		"min":2,
+		"max":8
+	},
+	{
+		"name":"Buy # from Twillen",
+		"list":[
+			"Triple Jump",
+			"Energy (shard)",
+			"Vitality",
+			"Light Harvest",
+			"Finesse",
+			"Overcharge",
+			"Swap",
+			"Wingclip"
+		]
+	},
+	{
+		"name":"Buy $ items from Opher",
+		"min":2,
+		"max":8
+	},
+	{
+		"name":"Buy # from Opher",
+		"list":[
+			"Exploding Spike",
+			"Shock Smash",
+	        "Static Star",
+	        "Charge Blaze",
+	        "Sentry Speed"
+		]
+	},
 	{
 		"name":"Complete the # Fight Room",
 		"list":[
@@ -38,27 +70,7 @@
 		]
 	},
 	{
-		"name":"Buy # from Opher",
-		"list":[
-			"Exploding Spike",
-			"Shock Smash",
-	        "Static Star",
-	        "Charge Blaze",
-	        "Sentry Speed"
-		]
-	},
-	{
 		"name":"Break $ Wellspring blobs",
-		"min":2,
-		"max":8
-	},
-	{
-		"name":"Buy $ items from Twillen",
-		"min":2,
-		"max":8
-	},
-	{
-		"name":"Buy $ items from Opher",
 		"min":2,
 		"max":8
 	},
@@ -74,7 +86,6 @@
 			"Spinning Lasers",
 			"Upper",
 			"Burrow",
-			"Willow Laser",
 			"Redirect Puzzle",
 			"Boulder Escape",
 			"Lower Left"
@@ -109,7 +120,20 @@
 		"max":6
 	},
 	{
-		"name":"Activate # Spirit Trial",
+		"name":"Complete the # Spirit Trial",
+		"list":[
+			"Baur's Reach",
+			"Winddswept Wastes",
+			"Inkwater Marsh",
+			"Kwolok's Hollow",
+			"Luma Pools",
+			"Mouldwood Depths",
+			"Silent Woods",
+			"The Wellspring"
+		]
+	},
+	{
+		"name":"Activate the # Spirit Trial",
 		"list":[
 			"Baur's Reach",
 			"Winddswept Wastes",
@@ -126,16 +150,7 @@
 		"min":2,
 		"max":5
 	},
-	{
-		"name":"Collect this Wisp #",
-		"list":[
-			"Strength (Pools)",
-			"Memory (Reach)",
-			"Eyes (Depths)",
-			"Voice (Hollow)",
-			"Heart (Wastes)"
-		]
-	},
+	{ "name":"Collect the Voice Wisp (Hollow)"},
 	{
 		"name":"Defeat #",
 		"list":[
@@ -214,7 +229,7 @@
 		]
 	},
 	{
-		"name":"Open the # Door",
+		"name":"Open the # Keystone Door",
 		"list":[
 			"Light Burst Tree",
 			"Reach Trial",
@@ -233,7 +248,7 @@
 	{
 		"name":"Activate $ Teleporters",
 		"min":4,
-		"max":16
+		"max":15
 	},
 	{
 		"name":"Activate the # Teleporter",
@@ -308,5 +323,5 @@
 			"some Silk (Depths)",
 			"a Spyglass (Pools)"
 		]
-	},
+	}
 ]
