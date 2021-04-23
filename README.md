@@ -5,6 +5,9 @@ There isn't any weight algorithm so this generator is better suited for lockout 
 # How to use
 Simply download [the last release](https://github.com/Foopyo/BingoSyncCustomBoardGenerator/releases), unzip it and launch `setup.exe`. Then, go to the installation folder and launch `BingoBoardGenerator.exe`.
 
+# Vanilla+
+This tool can also generates a Vanilla+ seed, which works with the [randomizer](https://github.com/sparkle-preference/OriWotwRandomizerClient) of the game. This will gives you 3 random items when creating your file. You can get the West Woods TP by getting  the pickup at the vanilla location of the movement option you got when launching your save file.
+
 # Editing the goals
 If you are using this tool for another game than Ori and the Will of the Wisps you will have to edit the goals, which are set in the file `goals.json`. You need at least 25 different goals in your `goals.json` file in order for this tool to work.
 There is three type of goals you can create:
