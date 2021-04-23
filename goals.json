@@ -35,7 +35,7 @@
 		"max":8
 	},
 	{ 
-		"name": "Upgrade $ times your shards",
+		"name": "Upgrade your shards $ times",
 		"min": 3,
 		"max": 15
 	},
