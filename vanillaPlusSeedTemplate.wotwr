@@ -1,0 +1,462 @@
+// Hearders
+
+// skips several cutscenes
+// if a "Game Saved" message appears as a text box, you can reload from the menu to have the current cutscene skipped
+
+9|0|8|9|0|int|0  // for temporary usage
+
+9|0=1|6|f=0  // manual wisp
+9|0=1|1|0   // .
+9|0=1|1|0   // .
+9|0=1|1|1   // .
+9|0=1|1|1   // .
+9|1|4|9|9|1             // timed autosaves
+9|1=1000|6|Game Saved!  // .
+9|1=1000|4|0            // .
+9|1=1000|4|10|9|1       // .
+9|1=2000|4|2       // timed checkpoints
+9|1=2000|4|10|9|1  // .
+46462|59806|8|937|6778|bool|true  // skip voice door
+37858|12379|8|9|1|int|670      // skip water cleaned
+37858|12379|8|937|34641|int|3  // .
+6|1014|8|18793|25789|bool|true  // skip depths gate
+18793|26713=1|6|f=0                // skip mora start
+18793|26713=1|8|18793|26713|int|2  // .
+18793|26713=1|4|8|693|-4458        // .
+18793|26713=1|4|12|999             // .
+18793|26713=1|4|13|999             // .
+18793|26713=1|8|9|1|int|1998       // .
+945|58403=1|6|f=0              // skip kwolok start
+945|58403=1|8|945|58403|int|2  // .
+945|58403=1|4|8|-1625|-4123    // .
+945|58403=7|8|9|1|int|998          // skip kwolok end
+945|58403=7|8|945|49747|bool|true  // .
+945|58403=7|8|14019|35087|int|3    // .
+945|58403=7|8|14019|54675|int|4    // .
+945|58403=7|8|9|0|int|1            // .
+937|10071|8|9|0|int|2         // skip ruins gate
+18793|63291|8|9|0|int|2      // .
+28895|25522|8|9|0|int|2      // .
+945|49747|8|9|0|int|2        // .
+9|0=2|4|4|937|10071|0         // .
+9|0=2|4|4|28895|25522|0       // .
+9|0=2|4|4|18793|63291|0       // .
+9|0=2|4|4|945|49747|0         // .
+9|0=2|8|10289|3804|bool|true  // .
+10289|19890=1|6|f=0                // skip ruins start
+10289|19890=1|8|10289|19890|int|2  // .
+10289|19890=1|2|108                // .
+10289|19890=3|8|9|100|bool|true  // skip ruins end
+9|100|8|9|1|int|950              // .
+9|100|8|14019|35399|int|3        // .
+9|100|8|14019|54675|int|6        // .
+9|100|8|10289|22102|bool|true    // .
+9|100|8|9|0|int|1                // .
+
+// Reset vanilla behaviors
+
+3440|54402|8|9|103|bool|true       // Glide Flap related fix
+
+3|0|8|21786|47458|bool|false       // Torch is here
+3|0|8|9593|3621|bool|false         // -
+3|0|8|58674|44798|int|0            // Can play Ku reunion cutscene
+3|0|8|58674|46980|bool|false       // -
+14019|34504=4|4|4|9|103|1          // Ku is in woods
+14019|34504=4|8|14019|34504|int|2  // -
+3|0|8|58674|61252|bool|false       // Skull in woods
+3|0|8|42178|16825|int|1            // Undone Town projects
+3|0|8|42178|51230|int|0            // -
+3|0|8|42178|15068|int|0            // -
+3|0|8|42178|23193|bool|false       // -
+3|0|8|14019|44578|int|0            // -
+44964|23661=2|0|1000               // Spirit Trials gives 1000SL
+44964|30767=2|0|1000               // -
+44964|45951=2|0|1000               // -
+44964|25545=2|0|1000               // -
+44964|54686=2|0|1000               // -
+44964|28552=2|0|1000               // -
+44964|22703=2|0|1000               // -
+44964|11512=2|0|1000               // -
+
+
+
+                                   // Fix riding Ku behavior
+3440|54402|4|4|6|1097|1            // Stop if player has bow
+3440|54402|2|97|mute               // Give bow when riding Ku
+3440|54402|8|9|102|bool|true       // Remember that player didn't had bow
+3440|54402|4|9|9|69
+
+9|69|4|4|3440|54402|1
+9|69|4|10|9|69
+9|69|2|-97|mute
+9|69|2|14|mute
+9|69|2|118|mute
+9|69|8|9|69|int|0
+9|69|4|0
+
+8246|62310|4|4|9|69|0
+8246|62310|4|4|3440|54402|0
+8246|62310|4|9|9|69
+
+
+
+// Vanilla seed skeleton v0.0.2
+
+Flags: NoFreeSword, RainyMarsh
+
+// shards 
+
+23987|23015|3|47         // Arcing from GladesTown.ArcingShard
+23987|14014|3|4          // Bounty from GladesTown.BountyShard
+23987|897|3|36           // Catalyst from LowerReach.CatalystShard
+24922|46311|3|44         // Deflector from MidnightBurrows.DeflectorShard
+5377|40328|3|25          // EnergyHarvest from EastPools.EnergyHarvestShard
+23987|36359|3|46         // Fracture from LowerReach.FractureShard
+23987|50364|3|28         // LastStand from LowerWastes.LastStandShard
+23987|19630|3|43         // LifeForce from UpperReach.LifeForceShard
+23987|53934|3|23         // LifeHarvest from OuterWellspring.LifeHarvestShard
+23987|50415|3|27         // Lifepact from MarshSpawn.LifepactShard
+21786|63545|3|8          // Magnet from HowlsDen.MagnetShard
+23987|25183|3|34         // Overflow from WoodsMain.OverflowShard
+23987|61017|3|14         // Quickshot from WestHollow.QuickshotShard
+23987|9864|3|13          // Reckless from MarshSpawn.RecklessShard
+23987|59173|3|18         // Resilience from MarshSpawn.ResilienceShard
+23987|986|3|41           // SpiritSurge from LowerDepths.SpiritSurgeShard
+23987|62973|3|9          // Splinter from EastHollow.SplinterShard
+23987|27134|3|39         // Sticky from HowlsDen.StickyShard
+23987|31426|3|35         // Thorn from InnerWellspring.ThornShard
+23987|48605|3|38         // Turmoil from UpperWastes.TurmoilShard
+23987|25996|3|32         // UltraBash from EastPools.UltraBashShard
+23987|12104|3|33         // UltraGrapple from OuterWellspring.UltraGrappleShard
+
+// shops 
+// TODO: something about teleport
+// TODO: fix prices 
+
+// 1|105|2|105                                             // OpherShop.Teleport
+
+1|115|2|115              // Blaze from OpherShop.Blaze
+1|116|2|116              // Sentry from OpherShop.Sentry
+1|74|2|74                // Spike from OpherShop.Spike
+1|98|2|98                // SpiritSmash from OpherShop.SpiritSmash
+1|106|2|106              // SpiritStar from OpherShop.SpiritStar
+1|23|2|23                // WaterBreath from OpherShop.WaterBreath
+
+2|26|3|26|-0.3333                // Energy from TwillenShop.Energy
+2|40|3|40|-0.3333                // Finesse from TwillenShop.Finesse
+2|19|3|19|-0.1666                // LightHarvest from TwillenShop.LightHarvest
+2|1|3|1                  // Overcharge from TwillenShop.Overcharge
+2|5|3|5                  // Swap from TwillenShop.Swap
+2|2|3|2|6.3333                  // TripleJump from TwillenShop.TripleJump
+2|22|3|22|-0.3333                // Vitality from TwillenShop.Vitality
+2|3|3|3|-0.3333                  // Wingclip from TwillenShop.Wingclip
+
+// spirit light
+
+58674|20983|0|100        // 100 Spirit Light from  EastHollow.RightKwolokEX
+58674|32647|0|100        // 100 Spirit Light from  WoodsMain.ShrineEX
+58674|64057|0|100        // 100 Spirit Light from  WoodsMain.BehindDoorRoofEX
+58674|30908|0|100        // 100 Spirit Light from  WoodsMain.UpperLeafPileEX
+58674|59714|0|100        // 100 Spirit Light from  WoodsMain.YellowWallEX
+58674|54516|0|100        // 100 Spirit Light from  WoodsMain.HiddenEX
+28895|22761|0|100        // 100 Spirit Light from  LowerReach.TrialEX
+28895|3777|0|100         // 100 Spirit Light from  LowerReach.AboveBaurUpperEX
+28895|38049|0|100        // 100 Spirit Light from  LowerReach.BelowLupoEX
+28895|40089|0|100        // 100 Spirit Light from  UpperReach.SwingPoleEX
+28895|36231|0|100        // 100 Spirit Light from  LowerReach.TPLeftEX
+28895|40242|0|100        // 100 Spirit Light from  UpperReach.SwimEX
+28895|4301|0|100         // 100 Spirit Light from  LowerReach.MeltIceEX
+7228|56821|0|100         // 100 Spirit Light from  LowerWastes.PurpleWallEX
+7228|52086|0|100         // 100 Spirit Light from  LowerWastes.SunsetViewEX
+7228|35329|0|100         // 100 Spirit Light from  UpperWastes.KSDoorEX
+7228|61548|0|100         // 100 Spirit Light from  UpperWastes.SpinLasersLowerEX
+7228|48993|0|100         // 100 Spirit Light from  UpperWastes.SpinLasersMiddleEX
+42178|51468|0|100        // 100 Spirit Light from  GladesTown.LupoSoupEX
+42178|13327|0|100        // 100 Spirit Light from  GladesTown.BraveMokiHutEX
+42178|57455|0|100        // 100 Spirit Light from  GladesTown.MotayHutEX
+42178|30520|0|100        // 100 Spirit Light from  GladesTown.HoleHutEX
+42178|51934|0|100        // 100 Spirit Light from  GladesTown.KeyMokiHutEX
+42178|59623|0|100        // 100 Spirit Light from  GladesTown.UpperLeftEX
+42178|9780|0|100         // 100 Spirit Light from  GladesTown.LupoSwimMiddleEX
+42178|18448|0|100        // 100 Spirit Light from  GladesTown.CaveBurrowEX
+42178|6117|0|100         // 100 Spirit Light from  GladesTown.BelowHoleHutEX
+9593|5253|0|100          // 100 Spirit Light from  MarshPastOpher.TrialLeftEX
+937|45987|0|100          // 100 Spirit Light from  EastHollow.SecretRoofEX
+937|30182|0|100          // 100 Spirit Light from  EastHollow.BashEX
+937|45744|0|100          // 100 Spirit Light from  WestGlades.UpperPoolEX
+937|19529|0|100          // 100 Spirit Light from  EastHollow.MortarEX
+937|31036|0|100          // 100 Spirit Light from  WestGlades.AbovePlantEX
+945|58723|0|100          // 100 Spirit Light from  PoolsApproach.MillPathEX
+945|14530|0|100          // 100 Spirit Light from  PoolsApproach.AboveWheelEX
+945|10682|0|100          // 100 Spirit Light from  PoolsApproach.CurrentEX
+5377|18345|0|100         // 100 Spirit Light from  EastPools.BehindCrusherEX
+5377|21860|0|100         // 100 Spirit Light from  UpperPools.RightBubblesEX
+5377|27204|0|100         // 100 Spirit Light from  EastPools.BelowLeverEX
+5377|33180|0|100         // 100 Spirit Light from  UpperPools.RoofEX
+5377|44122|0|100         // 100 Spirit Light from  WestPools.EscapeRevisitEX
+5377|7540|0|100          // 100 Spirit Light from  EastPools.AboveTpEX
+5377|35440|0|100         // 100 Spirit Light from  EastPools.LupoEX
+5377|52791|0|100         // 100 Spirit Light from  UpperPools.CurrentEX
+5377|17396|0|100         // 100 Spirit Light from  EastPools.CurrentEX
+5377|13832|0|100         // 100 Spirit Light from  EastPools.TwoCrushersEX
+18793|29979|0|100        // 100 Spirit Light from  UpperDepths.TeleporterEX
+18793|2881|0|100         // 100 Spirit Light from  LowerDepths.LeftEX
+18793|6573|0|100         // 100 Spirit Light from  UpperDepths.HiveEX
+18793|19004|0|100        // 100 Spirit Light from  UpperDepths.EntrySpikesEX
+18793|42980|0|100        // 100 Spirit Light from  EastHollow.DepthsExteriorEX
+18793|15396|0|100        // 100 Spirit Light from  UpperDepths.EntryRoofEX
+21786|10413|0|100        // 100 Spirit Light from  MarshPastOpher.TrialRightEX
+21786|23154|0|100        // 100 Spirit Light from  MarshSpawn.LongSwimEX
+21786|50255|0|100        // 100 Spirit Light from  MarshPastOpher.CeilingEX
+37858|22107|0|100        // 100 Spirit Light from  InnerWellspring.ThornEX
+37858|31136|0|100        // 100 Spirit Light from  InnerWellspring.GrappleTreeEX
+37858|41380|0|100        // 100 Spirit Light from  InnerWellspring.DrainEX
+37858|59022|0|100        // 100 Spirit Light from  InnerWellspring.LibraryEX
+37858|41911|0|100        // 100 Spirit Light from  InnerWellspring.LupoEX
+37858|52110|0|100        // 100 Spirit Light from  InnerWellspring.RotateRoomEX
+37858|56444|0|100        // 100 Spirit Light from  InnerWellspring.EscapeRevisitEX
+37858|45656|0|100        // 100 Spirit Light from  InnerWellspring.WaterSwitchEX
+53632|12019|0|100        // 100 Spirit Light from  WestGlades.GrappleEX
+53632|62356|0|100        // 100 Spirit Light from  OuterWellspring.SwimEX
+53632|51706|0|100        // 100 Spirit Light from  OuterWellspring.RightWallEX
+53632|42264|0|100        // 100 Spirit Light from  OuterWellspring.EntranceRoofEX
+53632|6500|0|100         // 100 Spirit Light from  OuterWellspring.WheelEX
+20120|48829|0|100        // 100 Spirit Light from  LowerWastes.UpperPathEX
+20120|52812|0|100        // 100 Spirit Light from  UpperWastes.PurpleWallEX
+20120|30740|0|100        // 100 Spirit Light from  UpperWastes.MissileSpawnEX
+20120|8910|0|100         // 100 Spirit Light from  LowerWastes.SkeetoHiveEX
+20120|10397|0|100        // 100 Spirit Light from  LowerWastes.MuncherPitEX
+20120|19113|0|100        // 100 Spirit Light from  LowerWastes.BurrowTreeEX
+20120|57781|0|100        // 100 Spirit Light from  LowerWastes.SandPotEX
+20120|2013|0|100         // 100 Spirit Light from  UpperWastes.RoofEX
+28287|32414|0|100        // 100 Spirit Light from  UpperReach.LifeForceEX
+58674|64484|0|200        // 200 Spirit Light from  WoodsMain.FeedingGroundsEX
+28895|2129|0|200         // 200 Spirit Light from  UpperReach.HiddenEX
+28895|45337|0|200        // 200 Spirit Light from  LowerReach.IcefallEX
+28895|46404|0|200        // 200 Spirit Light from  LowerReach.EscapeRevisitEX
+28895|53283|0|200        // 200 Spirit Light from  LowerReach.RoofLeftEX
+36153|36521|0|200        // 200 Spirit Light from  WeepingRidge.SpikeClimbEX
+36153|23902|0|200        // 200 Spirit Light from  WillowsEnd.UpperLeftEX
+36153|3662|0|200         // 200 Spirit Light from  WillowsEnd.UpperRightEX
+36153|12077|0|200        // 200 Spirit Light from  WeepingRidge.PortalEX
+7228|54275|0|200         // 200 Spirit Light from  UpperWastes.SpinLasersRightEX
+24922|62138|0|200        // 200 Spirit Light from  MarshSpawn.CrusherSwimEX
+42178|40609|0|200        // 200 Spirit Light from  LowerReach.BreakWallEX
+937|50176|0|200          // 200 Spirit Light from  WestHollow.CrusherEX
+46462|29054|0|200        // 200 Spirit Light from  EastHollow.KwolokSwimLeftEX
+945|10833|0|200          // 200 Spirit Light from  MarshPastOpher.PoolsPathEX
+5377|628|0|200           // 200 Spirit Light from  UpperPools.LeftBubblesEX
+5377|62180|0|200         // 200 Spirit Light from  WestPools.BurrowEX
+18793|23799|0|200        // 200 Spirit Light from  LowerDepths.RightEX
+18793|18395|0|200        // 200 Spirit Light from  UpperDepths.BossPathEX
+21786|21727|0|200        // 200 Spirit Light from  MarshSpawn.PoolsPathEX
+37858|64086|0|200        // 200 Spirit Light from  InnerWellspring.AboveSpinArenaEX
+37858|33063|0|200        // 200 Spirit Light from  InnerWellspring.ShortcutWheelEX
+16155|49381|0|200        // 200 Spirit Light from  WillowsEnd.EntryEX
+16155|55446|0|200        // 200 Spirit Light from  WillowsEnd.RedirectEX
+20120|224|0|200          // 200 Spirit Light from  LowerWastes.BottomRightEX
+20120|33275|0|200        // 200 Spirit Light from  LowerWastes.LastStandEX
+20120|17798|0|200        // 200 Spirit Light from  LowerWastes.UpperPathHiddenEX
+58674|59691|0|50         // 50 Spirit Light from  WoodsEntry.TpEX
+58674|8487|0|50          // 50 Spirit Light from  WoodsEntry.MudPitEX
+58674|23186|0|50         // 50 Spirit Light from  WoodsMain.BelowKeystonesEX
+58674|42158|0|50         // 50 Spirit Light from  WoodsMain.LowerLeafPileEX
+58674|33893|0|50         // 50 Spirit Light from  WoodsMain.MiddleLeafPileEX
+58674|17974|0|50         // 50 Spirit Light from  WoodsMain.PetrifiedHowlEX
+58674|22472|0|50         // 50 Spirit Light from  WoodsEntry.LeafPileEX
+28895|7597|0|50          // 50 Spirit Light from  UpperReach.WellEX
+28895|54373|0|50         // 50 Spirit Light from  LowerReach.WindHiddenEX
+28895|55384|0|50         // 50 Spirit Light from  LowerReach.BelowBaurEX
+28895|24533|0|50         // 50 Spirit Light from  LowerReach.AboveBaurLowerEX
+28895|35045|0|50         // 50 Spirit Light from  LowerReach.WindBottomEX
+28895|38143|0|50         // 50 Spirit Light from  LowerReach.AboveDoorEX
+28895|46711|0|50         // 50 Spirit Light from  LowerReach.RoofRightEX
+28895|45066|0|50         // 50 Spirit Light from  LowerReach.BurrowEX
+24922|32076|0|50         // 50 Spirit Light from  MarshSpawn.BurrowsApproachLedgeEX
+42178|30206|0|50         // 50 Spirit Light from  GladesTown.AboveCaveEX
+42178|37028|0|50         // 50 Spirit Light from  GladesTown.LupoSwimLeftEX
+42178|63404|0|50         // 50 Spirit Light from  GladesTown.UpdraftCeilingEX
+42178|44748|0|50         // 50 Spirit Light from  GladesTown.LeafPileEX
+42178|42762|0|50         // 50 Spirit Light from  GladesTown.AboveTpEX
+9593|17818|0|50          // 50 Spirit Light from  HowlsDen.DoubleJumpEX
+9593|59344|0|50          // 50 Spirit Light from  MarshPastOpher.SwingPoleEX
+9593|42047|0|50          // 50 Spirit Light from  MarshSpawn.FightRoomEX
+9593|5929|0|50           // 50 Spirit Light from  MarshSpawn.PreLupoEX
+937|40657|0|50           // 50 Spirit Light from  WestGlades.LowerPoolEX
+937|16163|0|50           // 50 Spirit Light from  WestHollow.FarLeftEX
+937|2538|0|50            // 50 Spirit Light from  WestHollow.RockPuzzleEX
+937|37926|0|50           // 50 Spirit Light from  WestHollow.DashRightEX
+937|48192|0|50           // 50 Spirit Light from  WestHollow.BelowLupoEX
+937|61744|0|50           // 50 Spirit Light from  WestHollow.AboveDashEX
+937|13413|0|50           // 50 Spirit Light from  EastHollow.HornBeetleFightEX
+937|5568|0|50            // 50 Spirit Light from  EastHollow.SpikeLanternEX
+46462|20780|0|50         // 50 Spirit Light from  EastHollow.KwolokSwimRightEX
+5377|33110|0|50          // 50 Spirit Light from  UpperPools.FishPoolEX
+5377|25391|0|50          // 50 Spirit Light from  WestPools.TpEX
+21786|59513|0|50         // 50 Spirit Light from  MarshSpawn.LeftTokkEX
+21786|49485|0|50         // 50 Spirit Light from  MarshSpawn.FirstPickupEX
+21786|6987|0|50          // 50 Spirit Light from  MarshSpawn.BridgeEX
+21786|43668|0|50         // 50 Spirit Light from  HowlsDen.UpperEX
+21786|16206|0|50         // 50 Spirit Light from  HowlsDen.AboveTPEX
+37858|45906|0|50         // 50 Spirit Light from  InnerWellspring.ThreeWheelsEX
+37858|2797|0|50          // 50 Spirit Light from  InnerWellspring.AboveTpEX
+20120|57133|0|50         // 50 Spirit Light from  LowerWastes.MuncherClimbEX
+
+// skills
+
+0|120|2|120              // AncestralLight from GladesTown.DamageTree
+0|121|2|121              // AncestralLight from MarshSpawn.DamageTree
+0|0|2|0                  // Bash from EastHollow.BashTree
+0|101|2|101              // Burrow from LowerWastes.BurrowTree
+0|102|2|102              // Dash from WestHollow.DashTree
+0|5|2|5                  // DoubleJump from HowlsDen.DoubleJumpTree
+0|62|2|62                // Flash from LowerDepths.FlashTree
+0|57|2|57                // Grapple from InnerWellspring.GrappleTree
+0|8|2|8                  // Launch from WeepingRidge.LaunchTree
+0|51|2|51                // LightBurst from UpperReach.LightBurstTree
+0|77|2|77                // Regenerate from MarshSpawn.RegenTree
+0|97|2|97                // SpiritArc from MarshPastOpher.BowTree
+0|100|2|100              // SpiritEdge from HowlsDen.SwordTree
+0|104|2|104              // SwimDash from UpperPools.SwimDashTree
+
+// resources 
+
+58674|9583|1|1           // Energy Cell from EastHollow.SilentSwimEC
+42178|52786|1|1          // Energy Cell from GladesTown.HoleHutEC
+9593|26457|1|1           // Energy Cell from MarshPastOpher.PoolsPathEC
+9593|27562|1|1           // Energy Cell from MarshPastOpher.TrialEC
+937|17761|1|1            // Energy Cell from WestGlades.SwimEC
+937|23772|1|1            // Energy Cell from EastHollow.BashEC
+937|24175|1|1            // Energy Cell from WestHollow.SwimEC
+937|8518|1|1             // Energy Cell from WestHollow.HiddenEC
+945|21334|1|1            // Energy Cell from PoolsApproach.MillPathEC
+5377|1600|1|1            // Energy Cell from UpperPools.BubblesEC
+5377|32750|1|1           // Energy Cell from UpperPools.WaterfallEC
+18793|26618|1|1          // Energy Cell from UpperDepths.SwimEC
+18793|28175|1|1          // Energy Cell from LowerDepths.SwimEC
+21786|17920|1|1          // Energy Cell from MarshSpawn.LeverEC
+21786|10295|1|1          // Energy Cell from MarshPastOpher.BowEC
+21786|61706|1|1          // Energy Cell from MarshSpawn.FangEC
+21786|7152|1|1           // Energy Cell from MarshSpawn.BashEC
+37858|57552|1|1          // Energy Cell from InnerWellspring.LeverEC
+53632|1911|1|1           // Energy Cell from OuterWellspring.RightWallEC
+53632|6869|1|1           // Energy Cell from OuterWellspring.BasementEC
+20120|50026|1|1          // Energy Cell from LowerWastes.UpperPathEC
+20120|11785|1|1          // Energy Cell from LowerWastes.MuncherTunnelEC
+20120|22354|1|1          // Energy Cell from UpperWastes.LedgeEC
+10289|44555|1|1          // Energy Cell from WindtornRuins.EscapeRevisitEC
+21786|27433|1|3          // Keystone from MarshPastOpher.LeftEyestone
+21786|37225|1|3          // Keystone from MarshPastOpher.RightEyestone
+58674|42531|1|3          // Keystone from WoodsMain.LeftKS
+58674|19769|1|3          // Keystone from WoodsMain.UpperKS
+58674|11736|1|3          // Keystone from WoodsEntry.UpperKS
+58674|43033|1|3          // Keystone from WoodsMain.RightKS
+58674|40073|1|3          // Keystone from WoodsEntry.LowerKS
+58674|780|1|3            // Keystone from WoodsMain.LowerKS
+28895|22382|1|3          // Keystone from UpperReach.MiddleLeftKS
+28895|29898|1|3          // Keystone from LowerReach.RightKS
+28895|1053|1|3           // Keystone from UpperReach.LowerKS
+28895|37444|1|3          // Keystone from LowerReach.MiddleLeftKS
+28895|10823|1|3          // Keystone from LowerReach.UpperLeftKS
+28895|9949|1|3           // Keystone from UpperReach.MiddleRightKS
+28895|18358|1|3          // Keystone from LowerReach.BottomLeftKS
+28895|50368|1|3          // Keystone from UpperReach.UpperKS
+7228|20282|1|3           // Keystone from UpperWastes.LowerKS
+7228|62117|1|3           // Keystone from UpperWastes.UpperKS
+24922|34250|1|3          // Keystone from MidnightBurrows.UpperKS
+24922|47244|1|3          // Keystone from MidnightBurrows.RightKS
+24922|60358|1|3          // Keystone from MidnightBurrows.LeftKS
+24922|33535|1|3          // Keystone from MidnightBurrows.LowerKS
+5377|35091|1|3           // Keystone from UpperPools.UpperLeftKS
+5377|16426|1|3           // Keystone from UpperPools.UpperMidKS
+5377|46926|1|3           // Keystone from UpperPools.LowerKS
+5377|41881|1|3           // Keystone from UpperPools.UpperRightKS
+18793|1914|1|3           // Keystone from UpperDepths.RightEntryKS
+18793|58148|1|3          // Keystone from UpperDepths.LeftEntryKS
+18793|53953|1|3          // Keystone from UpperDepths.LeftHealthKS
+18793|23986|1|3          // Keystone from UpperDepths.RightHealthKS
+21786|22068|1|3          // Keystone from HowlsDen.AboveDoorKS
+21786|2852|1|3           // Keystone from HowlsDen.LaserKS
+21786|64677|1|3          // Keystone from MarshSpawn.CaveKS
+13428|59730|1|0          // Health Cell from EastHollow.BashHC
+28895|40744|1|0          // Health Cell from LowerReach.SnowballHC
+9593|61304|1|0           // Health Cell from HowlsDen.LeftHC
+937|2463|1|0             // Health Cell from WestHollow.TrialHC
+937|61897|1|0            // Health Cell from WestHollow.CrusherHC
+945|37243|1|0            // Health Cell from PoolsApproach.MillPathHC
+5377|45774|1|0           // Health Cell from EastPools.FightRoomHC
+5377|63201|1|0           // Health Cell from EastPools.PurpleWallHC
+18793|62694|1|0          // Health Cell from LowerDepths.RaceStartHC
+18793|42235|1|0          // Health Cell from UpperDepths.KeystoneHC
+21786|28908|1|0          // Health Cell from HowlsDen.RightHC
+21786|25761|1|0          // Health Cell from MarshSpawn.GrappleHC
+21786|60210|1|0          // Health Cell from MarshSpawn.RockHC
+21786|20194|1|0          // Health Cell from MarshPastOpher.TrialHC
+37858|25833|1|0          // Health Cell from InnerWellspring.DrainHC
+44310|29043|1|0          // Health Cell from GladesTown.AboveGromHC
+44310|36911|1|0          // Health Cell from WestGlades.ShrineHC
+44310|17523|1|0          // Health Cell from GladesTown.LupoSwimHC
+53632|17403|1|0          // Health Cell from OuterWellspring.HiddenHC
+16155|46270|1|0          // Health Cell from WillowsEnd.PoisonfallHC
+20120|59046|1|0          // Health Cell from LowerWastes.UpperPathHC
+20120|12941|1|0          // Health Cell from LowerWastes.BottomRightHC
+20120|62264|1|0          // Health Cell from LowerWastes.SandPotHC
+20120|18965|1|0          // Health Cell from UpperWastes.PurpleWallHC
+58674|20713|1|2          // Gorlek Ore from WoodsMain.HiddenOre
+58674|26274|1|2          // Gorlek Ore from WoodsMain.BehindWallOre
+58674|28710|1|2          // Gorlek Ore from WoodsEntry.LedgeOre
+28895|23795|1|2          // Gorlek Ore from UpperReach.SoupOre
+28895|39291|1|2          // Gorlek Ore from UpperReach.TreeOre
+28895|58675|1|2          // Gorlek Ore from LowerReach.IcefallOre
+28895|47529|1|2          // Gorlek Ore from LowerReach.HiddenOre
+36153|3013|1|2           // Gorlek Ore from WeepingRidge.Ore
+7228|54494|1|2           // Gorlek Ore from LowerWastes.WestTPOre
+7228|8370|1|2            // Gorlek Ore from UpperWastes.WallOre
+42178|23125|1|2          // Gorlek Ore from GladesTown.LowerOre
+42178|27110|1|2          // Gorlek Ore from GladesTown.UpperOre
+9593|20382|1|2           // Gorlek Ore from MarshSpawn.BurrowOre
+9593|23858|1|2           // Gorlek Ore from MarshSpawn.CaveOre
+9593|25989|1|2           // Gorlek Ore from MarshPastOpher.TrialOre
+937|10729|1|2            // Gorlek Ore from EastHollow.GladesApproachOre
+937|6703|1|2             // Gorlek Ore from WestGlades.LeftOre
+937|11846|1|2            // Gorlek Ore from WestGlades.RightOre
+46462|37897|1|2          // Gorlek Ore from EastHollow.KwolokSwimOre
+5377|12235|1|2           // Gorlek Ore from EastPools.LupoOre
+5377|31434|1|2           // Gorlek Ore from UpperPools.FishPoolOre
+5377|65019|1|2           // Gorlek Ore from WestPools.BurrowOre
+5377|34852|1|2           // Gorlek Ore from EastPools.RightOre
+5377|19694|1|2           // Gorlek Ore from EastPools.AboveDoorOre
+18793|35351|1|2          // Gorlek Ore from UpperDepths.EntryOre
+18793|836|1|2            // Gorlek Ore from LowerDepths.BelowDoorOre
+21786|2046|1|2           // Gorlek Ore from HowlsDen.BoneOre
+21786|29892|1|2          // Gorlek Ore from MarshSpawn.ResilienceOre
+37858|32932|1|2          // Gorlek Ore from InnerWellspring.SwimOre
+37858|47533|1|2          // Gorlek Ore from InnerWellspring.RotateRoomOre
+37858|58286|1|2          // Gorlek Ore from OuterWellspring.TrialOre
+37858|58846|1|2          // Gorlek Ore from InnerWellspring.LaserOre
+53632|21124|1|2          // Gorlek Ore from OuterWellspring.SwimOre
+53632|25556|1|2          // Gorlek Ore from OuterWellspring.RightWallOre
+16155|38979|1|2          // Gorlek Ore from WillowsEnd.SpikesOre
+16155|9230|1|2           // Gorlek Ore from WillowsEnd.WindSpinOre
+20120|46919|1|2          // Gorlek Ore from LowerWastes.SandBridgeOre
+20120|40245|1|2          // Gorlek Ore from LowerWastes.EastTPOre
+58674|29265|1|4          // Shard Slot WoodsMain.CombatShrine
+24922|13993|1|4          // Shard Slot HowlsDen.CombatShrine
+18793|31937|1|4          // Shard Slot LowerDepths.CombatShrine
+21786|18109|1|4          // Shard Slot MarshPastOpher.CombatShrine
+44310|9902|1|4           // Shard Slot WestGlades.CombatShrine
+
+// quest rewards
+
+23987|14832|3|30         // Secret from GladesTown.TwillenGemQuest
+14019|15983=3|1|2        // Ore from MarshSpawn.MokkFangQuest
+14019|20667=3|1|2        // Ore from OuterWellspring.TheLostCompass
+48248|51645=3|1|3        // Keystone from MarshSpawn.TokkKeystoneQuest
+48248|18458=4|0|1000     // 1000 Spirit Light from MarshSpawn.TokkTabletQuest
+14019|44578=2|0|1000     // 1000 Spirit Light from GladesTown.RebuildTheGlades
+14019|26394=2|0|1000     // 1000 Spirit Light from GladesTown.RegrowTheGlades
+14019|33776=3|0|500      // 500 Spirit Light from GladesTown.MokiAcornQuest
+14019|50597=4|0|500      // 500 Spirit Light from EastHollow.KwolokAmuletQuest
+37858|12379|9|0          // Water from InnerWellspring.WaterEscape
+
+// Config: {"tps":true,"spoilers":false,"unsafePaths":false,"gorlekPaths":false, "webConn":true, glitchPaths":false,"questLocs":true,"outputFolder":"C:\\moon","flags":{"forceWisps":false,"forceTrees":false,"forceQuests":false,"noHints":true,"noSword":true,"rain":true,"noKSDoors":false,"randomSpawn":true},"bonusItems":false,"debugInfo":false,"seirLaunch":false}

@@ -12,8 +12,6 @@ namespace BingoBoardGenerator
             Console.ForegroundColor = color;
             Console.WriteLine(msg);
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Press a key to exit");
-            Console.ReadKey();
         }
 
         static List<Goal> ReadGoals()
@@ -30,22 +28,21 @@ namespace BingoBoardGenerator
                 WriteConsoleColor("Error when reading goals.json: " + e.ToString(), ConsoleColor.Red);
                 return null;
             }
-            List<Goal> goals = null;
             try
             {
-                goals = JsonConvert.DeserializeObject<List<Goal>>(goalsString);
+                List<Goal> goals = JsonConvert.DeserializeObject<List<Goal>>(goalsString);
                 if (goals.Count < 25)
                 {
                     WriteConsoleColor("goals.json needs at least 25 different goals. There is currently only " + goals.Count + " specified in this file.", ConsoleColor.Red);
                     return null;
                 }
+                return goals;
             }
             catch (Exception e)
             {
                 WriteConsoleColor("Error while deserializing goals.json: " + e.ToString(), ConsoleColor.Red);
                 return null;
             }
-            return goals;
         }
 
         static List<GoalBoard> GenerateBoard(List<Goal> goals, Random r)
@@ -69,20 +66,19 @@ namespace BingoBoardGenerator
             }
         }
 
-        static void WriteBoard(List<GoalBoard> board)
+        static void WriteBoard(List<GoalBoard> board, string fileName)
         {
-            string outputFile = "";
             try
             {
                 int i = 0;
-                outputFile = "Bingo_"; ;
-                while (File.Exists(outputFile + i.ToString() + ".json"))
+
+                while (File.Exists(fileName + i.ToString() + ".json"))
                 {
                     i++;
                 }
-                outputFile += i.ToString() + ".json";
-                File.WriteAllText(outputFile, JsonConvert.SerializeObject(board));
-                WriteConsoleColor("Bingo board " + outputFile + " successfully created!", ConsoleColor.Green);
+                fileName += "_" + i.ToString() + ".json";
+                File.WriteAllText(fileName, JsonConvert.SerializeObject(board));
+                WriteConsoleColor("Bingo board " + fileName + " successfully created!", ConsoleColor.Green);
             }
             catch (Exception e)
             {
@@ -90,18 +86,94 @@ namespace BingoBoardGenerator
             }
         }
 
+        static VanillaPlus ChoseStartingOptions(Random r)
+        {
+            try
+            {
+                Console.WriteLine("Selecting your Vanilla+ starting items");
+                VanillaPlusOptions options = JsonConvert.DeserializeObject<VanillaPlusOptions>(File.ReadAllText("startupItems.json"));
+                return new VanillaPlus(options, r);
+            }
+            catch(Exception e)
+            {
+                WriteConsoleColor("Error while choosing vanilla+ starting items: " + e.ToString(), ConsoleColor.Red);
+                return null;
+            }
+        }
+
+        static void WriteSeed(VanillaPlus items, string fileName)
+        {
+            int i = 0;
+
+            while (File.Exists(fileName + i.ToString() + ".wotwr"))
+            {
+                i++;
+            }
+            fileName += "_" + i.ToString() + ".wotwr";
+
+            try
+            {
+                using (StreamWriter sw = File.AppendText(fileName))
+                {
+                    sw.WriteLine("// Vanilla+");
+                    sw.WriteLine("3|0|" + items.Weapon);
+                    sw.WriteLine("3|0|" + items.Movement);
+                    sw.WriteLine("3|0|" + items.Utility+"\n");
+
+                    using (StreamReader sr = new StreamReader("vanillaPlusSeedTemplate.wotwr"))
+                    {
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            if (line.Contains("|" + items.Weapon + " "))
+                            {
+                                //string[] subLine = line.Split("|");
+                                //sw.WriteLine(subLine[0] + "|" + subLine[1] + "|8|42178|16825|int|3");
+                                //sw.WriteLine(line.Replace("|" + items.Weapon + " ", "|5|17"));
+                            }
+                            else if (line.Contains("|" + items.Movement + " "))
+                            {
+                                sw.WriteLine(line.Replace("|" + items.Movement + " ", "|5|7"));
+                            }
+                            else
+                            {
+                                sw.WriteLine(line);
+                            }
+                        }
+                    }
+                }
+                WriteConsoleColor("Seed file " + fileName + " successfully created!", ConsoleColor.Green);
+            }
+            catch (Exception e)
+            {
+                WriteConsoleColor("Error while creating the vanilla+ seed file: " + e.ToString(), ConsoleColor.Red);
+            }
+        }
+
         static void Main(string[] args)
         {
-            Random r = new Random();
+            string seed;
+            Console.WriteLine("Enter a seed");
+            seed = Console.ReadLine();
+            Console.WriteLine("Do you want to play in vanilla+? (y/n)");
+            bool vanillaP = Console.ReadKey().Key == ConsoleKey.Y;
+            Random r = new Random(seed.GetHashCode());
             List<Goal> goals = ReadGoals();
             if (goals != null)
             {
                 List<GoalBoard> board = GenerateBoard(goals, r);
                 if(board != null)
                 {
-                    WriteBoard(board);
+                    WriteBoard(board, seed);
+                    if (vanillaP)
+                    {
+                        VanillaPlus items = ChoseStartingOptions(r);
+                        WriteSeed(items, seed);
+                    }
                 }
             }
+            Console.WriteLine("Press a key to exit");
+            Console.ReadKey();
         }
     }
 }
