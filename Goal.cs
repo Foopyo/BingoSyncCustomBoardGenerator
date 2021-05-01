@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BingoBoardGenerator
+namespace VanillaPlusGenerator
 {
     public class Goal
     {

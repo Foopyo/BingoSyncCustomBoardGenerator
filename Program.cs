@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace BingoBoardGenerator
+namespace VanillaPlusGenerator
 {
     class Program
     {
@@ -49,10 +49,10 @@ namespace BingoBoardGenerator
         {
             try
             {
+                Console.WriteLine("Selecting goals");
                 List<GoalBoard> board = new List<GoalBoard>();
                 for (int i2 = 0; i2 < 25; i2++)
                 {
-                    Console.WriteLine("Select goal number " + (i2 + 1));
                     int iGoal = r.Next(0, goals.Count);
                     board.Add(new GoalBoard(goals[iGoal], r));
                     goals.RemoveAt(iGoal);
@@ -76,7 +76,14 @@ namespace BingoBoardGenerator
                 {
                     i++;
                 }
-                fileName += "_" + i.ToString() + ".json";
+                if (i != 0)
+                {
+                    fileName += "_" + i.ToString() + ".json";
+                }
+                else
+                {
+                    fileName += ".json";
+                }
                 File.WriteAllText(fileName, JsonConvert.SerializeObject(board));
                 WriteConsoleColor("Bingo board " + fileName + " successfully created!", ConsoleColor.Green);
             }
@@ -109,7 +116,14 @@ namespace BingoBoardGenerator
             {
                 i++;
             }
-            fileName += "_" + i.ToString() + ".wotwr";
+            if (i != 0)
+            {
+                fileName += "_" + i.ToString() + ".wotwr";
+            }
+            else
+            {
+                fileName += ".wotwr";
+            }
 
             try
             {
@@ -152,25 +166,26 @@ namespace BingoBoardGenerator
         static void Main(string[] args)
         {
             string seed;
-            Console.WriteLine("Enter a seed");
+            Console.WriteLine("Enter a seed (empty for random seed)");
             seed = Console.ReadLine();
-            Console.WriteLine("Do you want to play in vanilla+? (y/n)");
-            bool vanillaP = Console.ReadKey().Key == ConsoleKey.Y;
+            seed = seed != "" ? seed : DateTime.Now.GetHashCode().ToString();
+            Console.WriteLine("Do you want to generate a bingosync board? (y/n)");
+            bool bingo = Console.ReadKey().Key == ConsoleKey.Y;
+            Console.WriteLine("");
             Random r = new Random(seed.GetHashCode());
-            List<Goal> goals = ReadGoals();
-            if (goals != null)
+
+            VanillaPlus items = ChoseStartingOptions(r);
+            WriteSeed(items, seed);
+            if (bingo)
             {
+                List<Goal> goals = ReadGoals();
                 List<GoalBoard> board = GenerateBoard(goals, r);
-                if(board != null)
+                if (board != null)
                 {
                     WriteBoard(board, seed);
-                    if (vanillaP)
-                    {
-                        VanillaPlus items = ChoseStartingOptions(r);
-                        WriteSeed(items, seed);
-                    }
                 }
             }
+
             Console.WriteLine("Press a key to exit");
             Console.ReadKey();
         }

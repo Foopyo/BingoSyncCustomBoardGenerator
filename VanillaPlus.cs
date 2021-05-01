@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BingoBoardGenerator
+namespace VanillaPlusGenerator
 {
     public class VanillaPlus
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BingoBoardGenerator
+namespace VanillaPlusGenerator
 {
     public class GoalBoard
     {
