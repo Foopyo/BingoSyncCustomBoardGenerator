@@ -127,9 +127,8 @@ namespace BingoBoardGenerator
                         {
                             if (line.Contains("|" + items.Weapon + " "))
                             {
-                                //string[] subLine = line.Split("|");
-                                //sw.WriteLine(subLine[0] + "|" + subLine[1] + "|8|42178|16825|int|3");
-                                //sw.WriteLine(line.Replace("|" + items.Weapon + " ", "|5|17"));
+                                string[] subLine = line.Split("|");
+                                sw.WriteLine(line.Replace("|" + items.Weapon + " ", "|5|17"));
                             }
                             else if (line.Contains("|" + items.Movement + " "))
                             {

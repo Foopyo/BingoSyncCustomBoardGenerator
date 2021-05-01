@@ -1,4 +1,4 @@
-// Hearders
+// Headers
 
 // skips several cutscenes
 // if a "Game Saved" message appears as a text box, you can reload from the menu to have the current cutscene skipped
@@ -64,8 +64,7 @@
 14019|34504=4|4|4|9|103|1          // Ku is in woods
 14019|34504=4|8|14019|34504|int|2  // -
 3|0|8|58674|61252|bool|false       // Skull in woods
-3|0|8|42178|16825|int|1            // Undone Town projects
-3|0|8|42178|51230|int|0            // -
+3|0|8|42178|51230|int|0            // Undone Town projects
 3|0|8|42178|15068|int|0            // -
 3|0|8|42178|23193|bool|false       // -
 3|0|8|14019|44578|int|0            // -
@@ -130,8 +129,31 @@ Flags: NoFreeSword, RainyMarsh
 23987|12104|3|33         // UltraGrapple from OuterWellspring.UltraGrappleShard
 
 // shops 
-// TODO: something about teleport
-// TODO: fix prices 
+
+//Fixing Twillen's Price
+
+3|0|8|2|126|int|200
+3|0|8|2|140|int|200
+3|0|8|2|122|int|200
+3|0|8|2|103|int|200
+3|0|8|2|119|int|250
+3|0|8|2|101|int|300
+3|0|8|2|105|int|300
+3|0|8|2|102|int|2200
+
+// Fixing Opher's Price
+
+3|0|8|1|10115|int|200
+3|0|8|1|10116|int|200
+3|0|8|1|10074|int|200
+3|0|8|1|10098|int|200
+3|0|8|1|10106|int|200
+3|0|8|1|11115|int|2200
+3|0|8|1|11116|int|2200
+3|0|8|1|11074|int|2200
+3|0|8|1|11098|int|1800
+3|0|8|1|11106|int|2200
+3|0|8|1|10023|int|500
 
 // 1|105|2|105                                             // OpherShop.Teleport
 
@@ -142,14 +164,16 @@ Flags: NoFreeSword, RainyMarsh
 1|106|2|106              // SpiritStar from OpherShop.SpiritStar
 1|23|2|23                // WaterBreath from OpherShop.WaterBreath
 
-2|26|3|26|-0.3333                // Energy from TwillenShop.Energy
-2|40|3|40|-0.3333                // Finesse from TwillenShop.Finesse
-2|19|3|19|-0.1666                // LightHarvest from TwillenShop.LightHarvest
+
+
+2|26|3|26                // Energy from TwillenShop.Energy
+2|40|3|40                // Finesse from TwillenShop.Finesse
+2|19|3|19                // LightHarvest from TwillenShop.LightHarvest
 2|1|3|1                  // Overcharge from TwillenShop.Overcharge
 2|5|3|5                  // Swap from TwillenShop.Swap
-2|2|3|2|6.3333                  // TripleJump from TwillenShop.TripleJump
-2|22|3|22|-0.3333                // Vitality from TwillenShop.Vitality
-2|3|3|3|-0.3333                  // Wingclip from TwillenShop.Wingclip
+2|2|3|2                  // TripleJump from TwillenShop.TripleJump
+2|22|3|22                // Vitality from TwillenShop.Vitality
+2|3|3|3                  // Wingclip from TwillenShop.Wingclip
 
 // spirit light
 
@@ -459,4 +483,4 @@ Flags: NoFreeSword, RainyMarsh
 14019|50597=4|0|500      // 500 Spirit Light from EastHollow.KwolokAmuletQuest
 37858|12379|9|0          // Water from InnerWellspring.WaterEscape
 
-// Config: {"tps":true,"spoilers":false,"unsafePaths":false,"gorlekPaths":false, "webConn":true, glitchPaths":false,"questLocs":true,"outputFolder":"C:\\moon","flags":{"forceWisps":false,"forceTrees":false,"forceQuests":false,"noHints":true,"noSword":true,"rain":true,"noKSDoors":false,"randomSpawn":true},"bonusItems":false,"debugInfo":false,"seirLaunch":false}
+// Config: {"tps":true,"spoilers":false,"unsafePaths":false,"gorlekPaths":false, "webConn":true, "glitchPaths":false,"questLocs":true,"outputFolder":"C:\\moon","flags":{"forceWisps":false,"forceTrees":false,"forceQuests":false,"noHints":true,"noSword":true,"rain":true,"noKSDoors":false,"randomSpawn":true},"bonusItems":false,"debugInfo":false,"seirLaunch":false}
