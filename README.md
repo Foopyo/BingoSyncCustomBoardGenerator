@@ -1,14 +1,12 @@
-# BingoSyncCustomBoardGenerator
-Generate boards for custom games for [Bingosync](https://bingosync.com/)
-There isn't any weight algorithm so this generator is better suited for lockout bingos.
+# Ori WotW Vanilla+ Generator
+This project generates Vanilla+ seed for the [Ori and the Will of the Wisps randomizer](https://github.com/sparkle-preference/OriWotwRandomizerClient). A Vanilla+ seed is the vanilla game but you spawn with three items : one weapon, one movement option and one utility item (TP, skills...).
+Getting your weapon at its normal loation will give you the Glades TP. Getting your movement option at its normal position will give you West Woods TP.
 
 # How to use
-Simply download [the last release](https://github.com/Foopyo/BingoSyncCustomBoardGenerator/releases), unzip it and launch `setup.exe`. Then, go to the installation folder and launch `BingoBoardGenerator.exe`.
+Simply download [the last release](https://github.com/Foopyo/OriWOTWVanillaPlusGenerator/releases), unzip it and launch `setup.exe`. Then, go to the installation folder and launch `VanillaPGenerator.exe`.
 
-# Vanilla+
-This tool can also generates a Vanilla+ seed, which works with the [randomizer](https://github.com/sparkle-preference/OriWotwRandomizerClient) of the game. This will gives you 3 random items when creating your file. You can get the West Woods TP by getting  the pickup at the vanilla location of the movement option you got when launching your save file.
-
-# Editing the goals
+# Bingo boards
+This tool can also generates bingo boards for [bingosync](https://bingosync.com/).
 If you are using this tool for another game than Ori and the Will of the Wisps you will have to edit the goals, which are set in the file `goals.json`. You need at least 25 different goals in your `goals.json` file in order for this tool to work.
 There is three type of goals you can create:
 ## Fix goal
