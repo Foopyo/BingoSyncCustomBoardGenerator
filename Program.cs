@@ -108,28 +108,23 @@ namespace VanillaPlusGenerator
             }
         }
 
-        static void WriteSeed(VanillaPlus items, string fileName)
+        static void WriteSeed(VanillaPlus items, string fileName, bool multiplayer)
         {
             int i = 0;
 
             while (File.Exists(fileName + i.ToString() + ".wotwr"))
-            {
                 i++;
-            }
             if (i != 0)
-            {
                 fileName += "_" + i.ToString() + ".wotwr";
-            }
             else
-            {
                 fileName += ".wotwr";
-            }
 
             try
             {
                 using (StreamWriter sw = File.AppendText(fileName))
                 {
                     sw.WriteLine("// Vanilla+");
+                    sw.WriteLine("3|0|8|1|105|bool|true");  // Opher already sold you TPA
                     sw.WriteLine("3|0|" + items.Weapon);
                     sw.WriteLine("3|0|" + items.Movement);
                     sw.WriteLine("3|0|" + items.Utility+"\n");
@@ -140,18 +135,15 @@ namespace VanillaPlusGenerator
                         while ((line = sr.ReadLine()) != null)
                         {
                             if (line.Contains("|" + items.Weapon + " "))
-                            {
-                                string[] subLine = line.Split("|");
                                 sw.WriteLine(line.Replace("|" + items.Weapon + " ", "|5|17"));
-                            }
                             else if (line.Contains("|" + items.Movement + " "))
-                            {
                                 sw.WriteLine(line.Replace("|" + items.Movement + " ", "|5|7"));
-                            }
+                            else if (line.Contains("3|0|8|42178|16825|int|1") || line.Contains("3|0|8|48248|16489|int|0") || line.Contains("1|105|6|Fast Travel"))  // Skip reverting spirit well in Glades/Marsh + skip losing TPA from the start + Message when getting TPA
+                                continue;
+                            else if (line.Contains("// Config") && multiplayer)
+                                sw.Write(line.Replace("\"webConn\":false", "\"webConn\":true"));
                             else
-                            {
                                 sw.WriteLine(line);
-                            }
                         }
                     }
                 }
@@ -166,16 +158,20 @@ namespace VanillaPlusGenerator
         static void Main(string[] args)
         {
             string seed;
+            bool multiplayer;
             Console.WriteLine("Enter a seed (empty for random seed)");
             seed = Console.ReadLine();
             seed = seed != "" ? seed : DateTime.Now.GetHashCode().ToString();
+            Console.WriteLine("Do you want to play in coop or enable bingo autotracking? (y/n)");
+            multiplayer = Console.ReadKey().Key == ConsoleKey.Y;
+            Console.WriteLine("");
             Console.WriteLine("Do you want to generate a bingosync board? (y/n)");
             bool bingo = Console.ReadKey().Key == ConsoleKey.Y;
             Console.WriteLine("");
             Random r = new Random(seed.GetHashCode());
 
             VanillaPlus items = ChoseStartingOptions(r);
-            WriteSeed(items, seed);
+            WriteSeed(items, seed, multiplayer);
             if (bingo)
             {
                 List<Goal> goals = ReadGoals();
