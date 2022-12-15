@@ -2,8 +2,8 @@
 
 /// Revert Eyestones
 
-3|0|4|7|0|0                // Can't oppen the Kwolok's statue by default
-9|10=2|4|7|0|1             // Can open Kwolok statue once you collected both eyestones
+3|0|8|7|6|bool|false                // Can't oppen the Kwolok's statue by default
+9|10=2|8|7|6|bool|true             // Can open Kwolok statue once you collected both eyestones
 9|10|6|Eyestone|mute
 9|10|1|3
 
@@ -93,7 +93,7 @@
 /// Fix riding Ku behavior
 timer: 9|100|9|150
 
-14019|34504=4|4|17|9|105|0|8|14019|34504|int|2  // Force Ku being in Woods because of a hardcoded rando feature
+//14019|34504=4|4|17|9|105|0|8|14019|34504|int|2  // Force Ku being in Woods because of a hardcoded rando feature
 
 3440|54402|4|17|3440|54402|1|8|9|102|bool|true   // If player started riding Ku... 
 9|102|6|f=0
@@ -111,7 +111,7 @@ timer: 9|100|9|150
 9|104|4|17|9|103|1|4|28|1001|mute                 // If player didn't had bow before riding Ku, unequippe it
 9|104|4|17|9|103|1|2|-97|mute                     // If player didn't had bow before riding Ku, removes it from them
 
-/// Revert hardcoded states (list here https://github.com/ori-rando/wotw-client/blob/main/projects/RandoMainDLL/UberStateController.cs#L495) 
+/// Revert hardcoded states (list here https://github.com/ori-rando/wotw-client/blob/074f66ec313b6ec94503e0e1bbb57abc18327356/projects/RandoMainDLL/UberStateController.cs#L561) 
 
 3|0|8|48248|16489|int|0
 3|0|8|42178|16825|int|1
@@ -591,4 +591,4 @@ timer: 9|100|9|150
 44964|22703=2|0|1000               // -
 44964|11512=2|0|1000               // -
 
-// Config: {"version":"1.0.0","presets":[],"worlds":1,"players":[],"difficulty":"Moki","glitches":[],"goalmodes":[],"spawnLoc":{"Set":"MarshSpawn.Main"},"race":false,"disableLogicFilter":false,"webConn":false,"hard":false,"headerList":[],"headerArgs":[]}
+// Config: {"seed":"vanilla","worldSettings":[{"spawn":"MarshSpawn.Main","difficulty":"Moki","tricks":[],"hard":false,"goals":[],"headers":[],"headerConfig":[],"inlineHeaders":[]}],"disableLogicFilter":false,"online":false,"createGame":"None"}
