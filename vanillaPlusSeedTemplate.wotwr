@@ -1,252 +1,49 @@
-//// Vanilla seed v0.1.0
+//// Vanilla seed v0.2.0 (compatible with version 4.X of the randomizer)
 
-/// Revert Eyestones
-
-3|0|8|7|6|bool|false                // Can't oppen the Kwolok's statue by default
-9|10=2|8|7|6|bool|true             // Can open Kwolok statue once you collected both eyestones
-9|10|6|Eyestone|mute
-9|10|1|3
-
-/// Health only increase every two pickups
-
-9|5=1|6|Life Fragment
-9|5=1|4|12|230
-9|5=2|6|f=0
-9|5=2|1|0
-9|5=2|1|0
-9|5=2|8|9|5|int|0
-
-/// Energy only increase every two pickups
-
-9|6=1|6|Energy Fragment
-9|6=1|4|13|20
-9|6=2|6|f=0
-9|6=2|1|1
-9|6=2|1|1
-9|6=2|8|9|6|int|0
-
-/// Shop prices dependant on difficulty (base Price * difficulty)
-
-3|1|8|9|0|int|1        // Price routine
-
-// Set difficulty price multiplier
-9|0=1|4|17|34543|30984|0|8|9|1|int|1
-9|0=1|4|17|34543|30984|1|8|9|1|int|2
-9|0=1|4|17|34543|30984|2|8|9|1|int|3
-
-/// Set Twillen prices
-
-9|0=1|8|9|2|int|100
-9|0=1|8|2|126|int|$(9|3)
-9|0=1|8|2|140|int|$(9|3)
-9|0=1|8|2|122|int|$(9|3)
-9|0=1|8|2|103|int|$(9|3)
-9|0=1|8|9|2|int|125
-9|0=1|8|2|119|int|$(9|3)
-9|0=1|8|9|2|int|150
-9|0=1|8|2|101|int|$(9|3)
-9|0=1|8|2|105|int|$(9|3)
-9|0=1|8|9|2|int|1100
-9|0=1|8|2|102|int|$(9|3)
-
-/// Set undiscounted Opher prices
-
-9|0=1|8|9|2|int|800
-9|0=1|8|1|11115|int|$(9|3)
-9|0=1|8|1|11116|int|$(9|3)
-9|0=1|8|1|11074|int|$(9|3)
-9|0=1|8|1|11106|int|$(9|3)
-9|0=1|8|9|2|int|600
-9|0=1|8|1|11098|int|$(9|3)
-9|0=1|8|9|2|int|250
-9|0=1|8|1|10023|int|$(9|3)
-9|0=1|8|1|10105|int|$(9|3)
-
-/// Set discounted Opher prices
-
-9|0=1|4|17|3440|20131|0|8|9|2|int|200
-9|0=1|4|17|3440|20131|1|8|9|2|int|400
-9|0=1|8|1|10115|int|$(9|3)
-9|0=1|8|1|10116|int|$(9|3)
-9|0=1|8|1|10074|int|$(9|3)
-9|0=1|8|1|10098|int|$(9|3)
-9|0=1|8|1|10106|int|$(9|3)
-
-/// Update on purchase
-
-1|115|8|9|0|int|1
-1|116|8|9|0|int|1
-1|74|8|9|0|int|1
-1|106|8|9|0|int|1
-1|98|8|9|0|int|1
-
-/// Multiply 9|1 with 9|2, store in 9|3
-/// invokes on setting 9|2
-9|2|8|9|3|int|0
-9|2|8|9|4|int|$(9|1)
-9|4|8|9|3|int|+$(9|2)
-9|4|8|9|4|int|-1
+// Format Version: 1.0.0
 
 /// Header Core
 9|0|8|9|0|int|0
 
-/// Fix riding Ku behavior
-timer: 9|100|9|150
+// **********************
+// *** Item placement ***
+// **********************
 
-//14019|34504=4|4|17|9|105|0|8|14019|34504|int|2  // Force Ku being in Woods because of a hardcoded rando feature
+// Opher
+1|115|2|115                // Blaze from OpherShop.Blaze
+1|116|2|116                // Sentry from OpherShop.Sentry
+1|74|2|74                  // Spike from OpherShop.Spike
+1|98|2|98                  // SpiritSmash from OpherShop.SpiritSmash
+1|106|2|106                // SpiritStar from OpherShop.SpiritStar
+1|23|2|23                  // WaterBreath from OpherShop.WaterBreath
+1|1115|11|48               // Charge Blaze
+1|1074|11|45               // Exploding Spike
+1|105|8|48248|16489|int|1  // Fast Travel
+1|105|6|Fast Travel        // - 
+1|1116|11|49               // Rapid Sentry
+1|1098|11|46               // Shock Smash
+1|1106|11|47               // Static Star
 
-3440|54402|4|17|3440|54402|1|8|9|102|bool|true   // If player started riding Ku... 
-9|102|6|f=0
-9|102|8|9|100|bool|true                          // Start timer linked to 9|150
-9|102|4|17|6|1097|0|8|9|103|bool|true 			 // If player don't have bow, remember they didn't have it at this point
-9|102|4|17|6|1097|0|2|97						 // If player don't have bow, give them bow
-9|102|4|15|0|1001								 // Equip bow on first slot
+// Twilen
+2|26|3|26   // Energy from TwillenShop.Energy
+2|40|3|40   // Finesse from TwillenShop.Finesse
+2|19|3|19   // LightHarvest from TwillenShop.LightHarvest
+2|1|3|1     // Overcharge from TwillenShop.Overcharge
+2|5|3|5     // Swap from TwillenShop.Swap
+2|2|3|2     // TripleJump from TwillenShop.TripleJump
+2|22|3|22   // Vitality from TwillenShop.Vitality
+2|3|3|3     // Wingclip from TwillenShop.Wingclip
 
-9|150|4|17|3440|54402|0|8|9|104|bool|true         // If player stoped riding  Ku...
-9|104|8|9|105|bool|true
-9|104|8|9|100|bool|false                          // Stop timer
-9|104|8|9|150|float|0                             // Reset timer
-9|104|2|14                                        // Give Glide
-9|104|2|118                                       // Give Flap
-9|104|4|17|9|103|1|4|28|1001|mute                 // If player didn't had bow before riding Ku, unequippe it
-9|104|4|17|9|103|1|2|-97|mute                     // If player didn't had bow before riding Ku, removes it from them
-
-/// Revert hardcoded states (list here https://github.com/ori-rando/wotw-client/blob/074f66ec313b6ec94503e0e1bbb57abc18327356/projects/RandoMainDLL/UberStateController.cs#L561) 
-
-3|0|8|48248|16489|int|0
-3|0|8|42178|16825|int|1
-3|0|8|7|4|bool|true
-3|0|8|42178|15068|int|0
-3|0|8|21786|47458|bool|false
-3|0|8|937|54318|bool|false
-3|0|8|9593|3621|bool|false
-3|0|8|21786|50432|bool|false
-3|0|8|11666|4220|bool|false
-3|0|8|58674|41644|bool|false
-3|0|8|58674|37811|bool|false
-3|0|8|5377|35023|bool|false
-3|0|8|48248|3846|bool|false
-3|0|8|945|9367|bool|false
-3|0|8|48248|40451|bool|false
-3|0|8|48248|37364|bool|false
-3|0|8|20120|55196|bool|false
-3|0|8|24922|45740|bool|false
-3|0|8|37858|25031|bool|false
-3|0|8|5377|21700|bool|false
-3|0|8|14019|48794|int|0
-3|0|8|937|34641|int|0
-3|0|8|10289|3621|bool|false
-3|0|8|21786|51018|bool|false
-3|0|8|28895|2108|bool|false
-3|0|8|37858|23225|bool|false
-3|0|8|16155|32922|bool|false
-3|0|8|48248|5982|bool|false
-3|0|8|48248|55122|bool|false
-3|0|8|48248|46745|bool|false
-3|0|8|48248|25267|int|0
-3|0|8|48248|12799|int|0
-3|0|8|48248|34756|bool|false
-3|0|8|48248|6194|bool|false
-3|0|8|48248|9394|bool|false
-3|0|8|14019|57552|int|0
-3|0|8|42178|50418|bool|false
-3|0|8|48248|7646|bool|false
-3|0|8|48248|45751|bool|false
-3|0|8|48248|54806|bool|false
-3|0|8|48248|46471|bool|false
-3|0|8|48248|7321|bool|false
-3|0|8|48248|30073|bool|false
-3|0|8|42178|51230|int|0
-3|0|8|14019|24683|int|0
-3|0|8|48248|10337|int|0
-3|0|8|48248|8985|bool|false
-3|0|8|48248|56448|bool|false
-3|0|8|48248|5186|bool|false
-3|0|8|58674|58268|bool|false
-3|0|8|3440|20131|bool|false
-3|0|8|14019|44578|int|0
-3|0|8|14019|16509|int|0
-3|0|8|14019|30596|int|0
-3|0|8|48248|7160|bool|false
-3|0|8|48248|15833|bool|false
-3|0|8|48248|52065|bool|false
-3|0|8|48248|13320|bool|false
-3|0|8|48248|5269|bool|false
-3|0|8|14019|24683|int|0
-3|0|8|58674|22056|bool|false
-3|0|8|58674|32369|bool|false
-3|0|8|58674|14539|bool|false
-3|0|8|58674|61252|bool|false
-3|0|8|58674|10677|bool|false
-3|0|8|58674|36965|bool|false
-3|0|8|58674|7636|bool|false
-3|0|8|14019|8973|int|0
-3|0|8|14019|35087|int|0
-3|0|8|14019|35399|int|0
-3|0|8|14019|45931|int|0
-3|0|8|58674|46980|bool|false
-3|0|8|58674|44798|int|0
-3|0|8|14019|54675|int|0
-3|0|8|14019|44500|int|0
-
-/// Set Lupo's Glades items as already bought
-
-3|0|8|48248|19396|int|1
-3|0|8|48248|57987|int|1
-3|0|8|48248|41666|int|1
-
-//Opher
-
-1|115|2|115              // Blaze from OpherShop.Blaze
-1|116|2|116              // Sentry from OpherShop.Sentry
-1|74|2|74                // Spike from OpherShop.Spike
-1|98|2|98                // SpiritSmash from OpherShop.SpiritSmash
-1|106|2|106              // SpiritStar from OpherShop.SpiritStar
-1|23|2|23                // WaterBreath from OpherShop.WaterBreath
-1|1115|11|48					// Charge Blaze
-1|1074|11|46					// Exploding Spike
-1|105|8|48248|16489|int|1		// Fast Travel
-1|105|6|Fast Travel
-1|1116|11|49					// Rapid Sentry
-1|1098|11|46					// Shock Smash
-1|1106|11|47					// Static Star
-
-//Twilen
-
-2|26|3|26                // Energy from TwillenShop.Energy
-2|40|3|40                // Finesse from TwillenShop.Finesse
-2|19|3|19                // LightHarvest from TwillenShop.LightHarvest
-2|1|3|1                  // Overcharge from TwillenShop.Overcharge
-2|5|3|5                  // Swap from TwillenShop.Swap
-2|2|3|2                  // TripleJump from TwillenShop.TripleJump
-2|22|3|22                // Vitality from TwillenShop.Vitality
-2|3|3|3                  // Wingclip from TwillenShop.Wingclip
-
-// Set shops icons
-
-3|1|17|0|1|115|spell:2016
-3|1|17|0|1|116|spell:2017
-3|1|17|0|1|74|spell:2012
-3|1|17|0|1|98|spell:1000
-3|1|17|0|1|106|spell:2015
-3|1|17|0|1|23|spell:4009
-3|1|17|0|1|1115|opher:9
-3|1|17|0|1|1074|opher:7
-3|1|17|0|1|105|opher:11
-3|1|17|0|1|1116|opher:1
-3|1|17|0|1|1098|opher:3
-3|1|17|0|1|1106|opher:5
-3|1|17|0|2|26|shard:26
-3|1|17|0|2|40|shard:40
-3|1|17|0|2|19|shard:19
-3|1|17|0|2|1|shard:1
-3|1|17|0|2|5|shard:5
-3|1|17|0|2|2|shard:2
-3|1|17|0|2|22|shard:22
-3|1|17|0|2|3|shard:3
+// Grom pickups
+17|16825|8|21|16825|bool|true  // Spirit Well
+17|51230|8|21|51230|bool|true  // Dwelling Repairs (1st huts)
+17|23607|8|21|23607|bool|true  // Roofs Over Heads (2nd huts)
+17|40448|8|21|40448|bool|true  // Onwards and Upwards (last huts)
+17|18751|8|21|18751|bool|true  // Thorns
+17|16586|8|21|16586|bool|true  // Cave
+17|15068|8|21|15068|bool|true  // The Gorlek Touch (bridge)
 
 // spirit light
-
 58674|20983|0|100        // 100 Spirit Light from  EastHollow.RightKwolokEX
 58674|32647|0|100        // 100 Spirit Light from  WoodsMain.ShrineEX
 58674|64057|0|100        // 100 Spirit Light from  WoodsMain.BehindDoorRoofEX
@@ -397,7 +194,6 @@ timer: 9|100|9|150
 20120|57133|0|50         // 50 Spirit Light from  LowerWastes.MuncherClimbEX
 
 /// shards 
-
 23987|23015|3|47         // Arcing from GladesTown.ArcingShard
 23987|14014|3|4          // Bounty from GladesTown.BountyShard
 23987|897|3|36           // Catalyst from LowerReach.CatalystShard
@@ -421,8 +217,7 @@ timer: 9|100|9|150
 23987|25996|3|32         // UltraBash from EastPools.UltraBashShard
 23987|12104|3|33         // UltraGrapple from OuterWellspring.UltraGrappleShard
 
-// skills
-
+// trees
 0|120|2|120              // AncestralLight from GladesTown.DamageTree
 0|121|2|121              // AncestralLight from MarshSpawn.DamageTree
 0|0|2|0                  // Bash from EastHollow.BashTree
@@ -439,7 +234,6 @@ timer: 9|100|9|150
 0|104|2|104              // SwimDash from UpperPools.SwimDashTree
 
 // resources 
-
 13428|59730|8|9|5|int|+1          // Health Cell from EastHollow.BashHC
 28895|40744|8|9|5|int|+1          // Health Cell from LowerReach.SnowballHC
 9593|61304|8|9|5|int|+1           // Health Cell from HowlsDen.LeftHC
@@ -566,7 +360,6 @@ timer: 9|100|9|150
 44310|9902|1|4                    // Shard Slot WestGlades.CombatShrine
 
 // quest rewards
-
 23987|14832|3|30         // Secret from GladesTown.TwillenGemQuest
 14019|15983=3|1|2        // Ore from MarshSpawn.MokkFangQuest
 14019|20667=3|1|2        // Ore from OuterWellspring.TheLostCompass
@@ -581,7 +374,6 @@ timer: 9|100|9|150
 937|34641=4|0|500        // 500 Spirit Light from speaking to Kwolok after clean water
 
 // Spirit Trials
-
 44964|23661=2|0|1000               // Spirit Trials gives 1000SL
 44964|30767=2|0|1000               // -
 44964|45951=2|0|1000               // -
@@ -591,4 +383,195 @@ timer: 9|100|9|150
 44964|22703=2|0|1000               // -
 44964|11512=2|0|1000               // -
 
-// Config: {"seed":"vanilla","worldSettings":[{"spawn":"MarshSpawn.Main","difficulty":"Moki","tricks":[],"hard":false,"goals":[],"headers":[],"headerConfig":[],"inlineHeaders":[]}],"disableLogicFilter":false,"online":false,"createGame":"None"}
+// Seeds
+14019|24142|6|Mysterious Seed
+14019|28662|6|Mysterious Seed
+14019|32376|6|Mysterious Seed
+14019|8192|6|Mysterious Seed
+14019|20601|6|Mysterious Seed
+
+// *****************************
+// *** Fixing vanilla stuffs ***
+// *****************************
+
+// Ku
+3440|54402|4|17|24|97|0|8|9|103|bool|true      // If player don't have bow before mounting Ku, remember they didn't have it at this point
+3440|54402|4|17|24|97|0|2|97                   // If they didn't, give them bow 
+3440|54402|4|17|24|97|0|4|15|0|1001            // Equip bow on first slot
+14019|34504=4|2|14                             // Give Glide when Ku dies
+14019|34504=4|2|118                            // Give Flap  when Ku dies
+14019|34504=4|4|17|9|103|1|8|24|97|bool|false  // If player didn't had bow before riding Ku, removes it from them
+
+/// Revert Eyestones
+3|0|8|7|6|bool|false     // Can't oppen the Kwolok's statue by default
+9|10=2|8|7|6|bool|true   // Can open Kwolok statue once you collected both eyestones
+9|10|6|Eyestone
+9|10|1|3|mute
+
+/// Health only increase every two pickups
+9|5=1|6|$Life Cell Fragment$\nCollect one more to increase your maximum Life. 
+9|5=1|4|12|230
+9|5=2|6|$Life Cell Fragment$\nYou completed a Life Cell!
+9|5=2|1|0|mute
+9|5=2|1|0|mute
+9|5=2|8|9|5|int|0
+
+/// Energy only increase every two pickups
+9|6=1|6|*Energy Cell Fragment*\nCollect one more to increase your maximum Energy.
+9|6=1|4|13|20
+9|6=2|6|f=0
+9|6=2|6|*Energy Cell Fragment*\nYou completed an Energy Cell!
+9|6=2|1|1|mute
+9|6=2|1|1|mute
+9|6=2|8|9|6|int|0
+
+// *************
+// *** Shops ***
+// *************
+
+/// Set Lupo's Glades items as already bought
+3|0|8|48248|19396|int|1
+3|0|8|48248|57987|int|1
+3|0|8|48248|41666|int|1
+
+// Lock shops item by default
+3|1|4|17|17|51230|0|17|4|17|23607|false  // Lock Roofs Over Heads (2nd huts) at the start
+3|1|4|17|17|23607|0|17|4|17|40448|false  // Lock Onwards and Upwards (last huts) at the start
+3|1|4|17|17|18751|0|17|4|17|16586|false  // Lock the Cave at the start
+3|1|17|4|1|1115|false                    // Lock Charged Blaze
+3|1|17|4|1|1074|false                    // Lock Exploding Spear
+3|1|17|4|1|1098|false                    // Lock Shock Smash
+3|1|17|4|1|1116|false                    // Lock Rapid Sentry
+3|1|17|4|1|1106|false                    // Lock Static Shuriken
+3|1|17|4|1|23|false                      // Lock Water Breathing
+3|1|17|4|1|105|false                     // Lock Fast Travel
+3|1|17|4|2|2|false                       // Lock Triple Jump
+3|1|17|4|2|19|false                      // Lock Light Harvest
+
+// Unlock shop items
+17|51230|17|4|17|23607|true  // Unlock Roofs Over Heads (2nd huts) when buying Dwelling Repairs (1st huts)
+17|23607|17|4|17|40448|true  // Unlock Onwards and Upwards (last huts) when buying Roofs Over Heads (2nd huts)
+17|18751|17|4|17|16586|true  // Unlock Cave when buying Thorns
+1|115|17|4|1|1115|true       // Unlock Charged Blaze when buying Blaze
+1|116|17|4|1|1116|true       // Unlock Rapid Sentry whe buying Sentry
+1|74|17|4|1|1074|true        // Unlock Exploding Spear when buying Spear
+1|106|17|4|1|1106|true       // Unlock Static Shuriken when buying Shuriken
+1|98|17|4|1|1098|true        // Unlock Shock Smash when buying Hammer
+37858|12379|17|4|1|23|true   // Unlock Water Breathing when completing Wellspring Escape
+42178|5815|17|4|1|105|true   // Unlock Fast Travel when opening the access to Glades
+42178|5815|17|4|2|2|true     // Unlock TripleJump when opening the access to Glades
+42178|5815|17|4|2|19|true    // Unlock LightHarvest when opening the access to Glades 
+
+
+// Set shops icons
+3|1|17|0|1|115|spell:2016
+3|1|17|0|1|116|spell:2017
+3|1|17|0|1|74|spell:2012
+3|1|17|0|1|98|spell:1000
+3|1|17|0|1|106|spell:2015
+3|1|17|0|1|23|spell:4009
+3|1|17|0|1|1115|opher:9
+3|1|17|0|1|1074|opher:7
+3|1|17|0|1|105|opher:11
+3|1|17|0|1|1116|opher:1
+3|1|17|0|1|1098|opher:3
+3|1|17|0|1|1106|opher:5
+3|1|17|0|2|26|shard:26
+3|1|17|0|2|40|shard:40
+3|1|17|0|2|19|shard:19
+3|1|17|0|2|1|shard:1
+3|1|17|0|2|5|shard:5
+3|1|17|0|2|2|shard:2
+3|1|17|0|2|22|shard:22
+3|1|17|0|2|3|shard:3
+3|1|17|0|17|16825|grom:0
+3|1|17|0|17|51230|grom:1
+3|1|17|0|17|23607|grom:3
+3|1|17|0|17|40448|grom:5
+3|1|17|0|17|18751|grom:2
+3|1|17|0|17|16586|grom:4
+3|1|17|0|17|15068|grom:6
+
+// Grom texts/desciptions
+3|1|17|1|17|16825|Repair the Spirit Well
+3|1|17|2|17|16825|They say the spirit of old could #warp# from one well to another. Perhaps if we #repaired this well with Gorlek Ore#, returning to the #Wellspring Glades# would be even easier.
+3|1|17|1|17|51230|Dwelling Repairs
+3|1|17|2|17|51230|It's a shame how those old Moki dwellings are in shambles. Maybe if we #fixed them up# the Moki could #move back to the Glades#?
+3|1|17|1|17|23607|Roofs Over Heads
+3|1|17|2|17|23607|Time to #build some more housing#! Now on the big tree, by the fire.
+3|1|17|1|17|40448|Onwards and Upwards
+3|1|17|2|17|40448|Treehouses seem to be popular with the Moki. How about we add a couple more?
+3|1|17|1|17|18751|Thorny Situation
+3|1|17|2|17|18751|Those spikey vines all over the place are quite the nuisance, let me tell you. With some help, I could #clear them out# and #make the Glades safer# for everyone!
+3|1|17|1|17|16586|Clear the Cave Entrance
+3|1|17|2|17|16586|That old cave entrance looks like it's #about to collapse#...but we Gorlek learned a thing or two about tunnelling after fleeing to the mines. With some Ore, I can #repair# it.
+3|1|17|1|17|15068|The Gorlek Touch
+3|1|17|2|17|15068|The Moki are right...building it only half the work. Nothing's quite complete without some #finishing touches# of decoration.
+
+// Set Grom Prices
+3|1|8|17|16826|int|1   // Spirit Well
+3|1|8|17|51231|int|4   // Dwelling Repairs (1st huts)
+3|1|8|17|23608|int|6   // Roofs Over Heads (2nd huts)
+3|1|8|17|40449|int|8   // Onwards and Upwards (last huts)
+3|1|8|17|18752|int|5   // Thorns
+3|1|8|17|16587|int|6   // Cave
+3|1|8|17|15069|int|10  // The Gorlek Touch (bridge)
+
+// *****************************************
+// *** Shop prices depends on difficulty ***
+// *****************************************
+
+3|1|8|9|0|int|1        // Price routine
+
+// Set difficulty price multiplier
+9|0=1|4|17|34543|30984|0|8|9|1|int|1  // Easy   -> price * 1 
+9|0=1|4|17|34543|30984|1|8|9|1|int|2  // Normal -> price * 2
+9|0=1|4|17|34543|30984|2|8|9|1|int|3  // Hard   -> price * 3
+
+/// Multiply 9|1 (price multiplier) with 9|2 (base price), store in 9|3
+9|2|8|9|3|int|0           // Set 9|3 to 0
+9|2|8|9|4|int|$(9|1)      // Set 9|4 to the price multiplier
+9|4|8|9|3|int|+$(9|2)     // Add 9|2 (base price of the item) to the result
+9|4|8|9|4|int|-1          // Decrease 9|4, which execute back the previous line and therefore simulate a for loop
+
+/// Set Twillen prices
+9|0=1|8|9|2|int|100
+9|0=1|8|2|126|int|$(9|3)  // Energy = 100 * price multiplier
+9|0=1|8|2|140|int|$(9|3)  // Finesse = 100 * price multiplier
+9|0=1|8|2|122|int|$(9|3)  // Vitality = 100 * price multiplier
+9|0=1|8|2|103|int|$(9|3)  // Wingclip = 100 * price multiplier
+9|0=1|8|9|2|int|125
+9|0=1|8|2|119|int|$(9|3)  // Light Harvest = 125 * price multiplier
+9|0=1|8|9|2|int|150
+9|0=1|8|2|101|int|$(9|3)  // Overcharge = 150 * price multiplier
+9|0=1|8|2|105|int|$(9|3)  // Swap = 150 * price multiplier
+9|0=1|8|9|2|int|1100
+9|0=1|8|2|102|int|$(9|3)  // Triple jump = 1100 * price multiplier
+
+/// Set Opher prices dependant on the first discount
+9|0=1|4|17|3440|20131|0|8|9|2|int|200  // If the player haven't bought anything from Opher, apply a 50% discount
+9|0=1|4|17|3440|20131|1|8|9|2|int|400  // After buying a weapon, the next items are full price
+9|0=1|8|1|10115|int|$(9|3)  // Blaze = (200 or 400) * price multiplier 
+9|0=1|8|1|10116|int|$(9|3)  // Sentry = (200 or 400) * price multiplier 
+9|0=1|8|1|10074|int|$(9|3)  // Spear = (200 or 400) * price multiplier 
+9|0=1|8|1|10098|int|$(9|3)  // Hammer = (200 or 400) * price multiplier 
+9|0=1|8|1|10106|int|$(9|3)  // Shuriken = (200 or 400) * price multiplier 
+
+/// Set Opher prices undependant on the first discount
+9|0=1|8|9|2|int|800
+9|0=1|8|1|11115|int|$(9|3)  // Charge Blaze = 800 * price multiplier
+9|0=1|8|1|11116|int|$(9|3)  // Rapid Sentry = 800 * price multiplier
+9|0=1|8|1|11074|int|$(9|3)  // Exploding Spike = 800 * price multiplier
+9|0=1|8|1|11106|int|$(9|3)  // Static Star = 800 * price multiplier
+9|0=1|8|9|2|int|600
+9|0=1|8|1|11098|int|$(9|3)  // Shock Smash = 600 * price multiplier
+9|0=1|8|9|2|int|250
+9|0=1|8|1|10023|int|$(9|3)  // Water Breath = 250 * price multiplier
+9|0=1|8|1|10105|int|$(9|3)  // Fast Travel = 250 * price multiplier
+
+/// Update when purchasing a wepaon from Opher to remove the discount
+1|115|8|9|0|int|1
+1|116|8|9|0|int|1
+1|74|8|9|0|int|1
+1|106|8|9|0|int|1
+1|98|8|9|0|int|1
