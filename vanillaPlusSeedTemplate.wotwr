@@ -35,13 +35,13 @@
 2|3|3|3     // Wingclip from TwillenShop.Wingclip
 
 // Grom pickups
-17|16825|8|21|16825|bool|true  // Spirit Well
-17|51230|8|21|51230|bool|true  // Dwelling Repairs (1st huts)
-17|23607|8|21|23607|bool|true  // Roofs Over Heads (2nd huts)
-17|40448|8|21|40448|bool|true  // Onwards and Upwards (last huts)
-17|18751|8|21|18751|bool|true  // Thorns
-17|16586|8|21|16586|bool|true  // Cave
-17|15068|8|21|15068|bool|true  // The Gorlek Touch (bridge)
+17|16825|8|21|16825|bool|true  // Spirit Well in Grom shop
+17|51230|8|21|51230|bool|true  // Dwelling Repairs (1st huts) in Grom shop
+17|23607|8|21|23607|bool|true  // Roofs Over Heads (2nd huts) in Grom shop
+17|40448|8|21|40448|bool|true  // Onwards and Upwards (last huts) in Grom shop
+17|18751|8|21|18751|bool|true  // Thorns in Grom shop
+17|16586|8|21|16586|bool|true  // Cave in Grom shop
+17|15068|8|21|15068|bool|true  // The Gorlek Touch (bridge) in Grom shop
 
 // spirit light
 58674|20983|0|100        // 100 Spirit Light from  EastHollow.RightKwolokEX
@@ -394,16 +394,20 @@
 // *** Fixing vanilla stuffs ***
 // *****************************
 
+// Removing Rain from Marsh
+0|100|8|6|401|bool|true  // Sunny Marsh
+0|100|8|6|402|bool|true  // Drain Regen tree
+
 // Ku
 3440|54402|4|17|24|97|0|8|9|103|bool|true      // If player don't have bow before mounting Ku, remember they didn't have it at this point
-3440|54402|4|17|24|97|0|2|97                   // If they didn't, give them bow 
-3440|54402|4|17|24|97|0|4|15|0|1001            // Equip bow on first slot
+9|103=1|2|97|mute                              // If they didn't, give them bow 
+9|103=1|4|15|0|1001                            // Equip bow on first slot
 14019|34504=4|2|14                             // Give Glide when Ku dies
 14019|34504=4|2|118                            // Give Flap  when Ku dies
 14019|34504=4|4|17|9|103|1|8|24|97|bool|false  // If player didn't had bow before riding Ku, removes it from them
 
 /// Revert Eyestones
-3|0|8|7|6|bool|false     // Can't oppen the Kwolok's statue by default
+3|0|8|7|6|bool|false     // Can't open the Kwolok's statue by default
 9|10=2|8|7|6|bool|true   // Can open Kwolok statue once you collected both eyestones
 9|10|6|Eyestone
 9|10|1|3|mute
@@ -425,43 +429,58 @@
 9|6=2|1|1|mute
 9|6=2|8|9|6|int|0
 
+// Restore Grom cutscenes
+3|1|8|17|16827|bool|true  // Spirit Well
+3|1|8|17|51232|bool|true  // Dwelling Repairs (1st huts)
+3|1|8|17|23609|bool|true  // Roofs Over Heads (2nd huts)
+3|1|8|17|40450|bool|true  // Onwards and Upwards (last huts)
+3|1|8|17|18753|bool|true  // Thorns
+3|1|8|17|16588|bool|true  // Cave
+3|1|8|17|15070|bool|true  // The Gorlek Touch (bridge)
+
 // *************
 // *** Shops ***
 // *************
 
-/// Set Lupo's Glades items as already bought
+/// Set Lupo's Glades items as already bought (because they are useless in rando)
 3|0|8|48248|19396|int|1
 3|0|8|48248|57987|int|1
 3|0|8|48248|41666|int|1
 
-// Lock shops item by default
-3|1|4|17|17|51230|0|17|4|17|23607|false  // Lock Roofs Over Heads (2nd huts) at the start
-3|1|4|17|17|23607|0|17|4|17|40448|false  // Lock Onwards and Upwards (last huts) at the start
-3|1|4|17|17|18751|0|17|4|17|16586|false  // Lock the Cave at the start
-3|1|17|4|1|1115|false                    // Lock Charged Blaze
-3|1|17|4|1|1074|false                    // Lock Exploding Spear
-3|1|17|4|1|1098|false                    // Lock Shock Smash
-3|1|17|4|1|1116|false                    // Lock Rapid Sentry
-3|1|17|4|1|1106|false                    // Lock Static Shuriken
-3|1|17|4|1|23|false                      // Lock Water Breathing
-3|1|17|4|1|105|false                     // Lock Fast Travel
-3|1|17|4|2|2|false                       // Lock Triple Jump
-3|1|17|4|2|19|false                      // Lock Light Harvest
+// Lock some shops item at the start
+3|1|17|4|17|16586|false  // Lock Cave
+3|1|17|4|17|15068|false  // Lock Beautify (bridge)
+3|1|17|4|17|51230|false  // Lock Dwelling Repairs (1st huts)
+3|1|17|4|17|23607|false  // Lock Roofs Over Heads (2nd huts)
+3|1|17|4|17|40448|false  // Lock Onwards and Upwards (last huts)
+3|1|17|4|1|1115|false    // Lock Charged Blaze
+3|1|17|4|1|1074|false    // Lock Exploding Spear
+3|1|17|4|1|1098|false    // Lock Shock Smash
+3|1|17|4|1|1116|false    // Lock Rapid Sentry
+3|1|17|4|1|1106|false    // Lock Static Shuriken
+3|1|17|4|1|23|false      // Lock Water Breathing
+3|1|17|4|1|105|false     // Lock Fast Travel
+3|1|17|4|2|2|false       // Lock Triple Jump
+3|1|17|4|2|19|false      // Lock Light Harvest
 
-// Unlock shop items
-17|51230|17|4|17|23607|true  // Unlock Roofs Over Heads (2nd huts) when buying Dwelling Repairs (1st huts)
-17|23607|17|4|17|40448|true  // Unlock Onwards and Upwards (last huts) when buying Roofs Over Heads (2nd huts)
-17|18751|17|4|17|16586|true  // Unlock Cave when buying Thorns
-1|115|17|4|1|1115|true       // Unlock Charged Blaze when buying Blaze
-1|116|17|4|1|1116|true       // Unlock Rapid Sentry whe buying Sentry
-1|74|17|4|1|1074|true        // Unlock Exploding Spear when buying Spear
-1|106|17|4|1|1106|true       // Unlock Static Shuriken when buying Shuriken
-1|98|17|4|1|1098|true        // Unlock Shock Smash when buying Hammer
-37858|12379|17|4|1|23|true   // Unlock Water Breathing when completing Wellspring Escape
-42178|5815|17|4|1|105|true   // Unlock Fast Travel when opening the access to Glades
-42178|5815|17|4|2|2|true     // Unlock TripleJump when opening the access to Glades
-42178|5815|17|4|2|19|true    // Unlock LightHarvest when opening the access to Glades 
-
+// Unlock shop items when doing things
+17|51230|17|4|17|23607|true     // Unlock Roofs Over Heads (2nd huts) when buying Dwelling Repairs (1st huts)
+17|23607|17|4|17|40448|true     // Unlock Onwards and Upwards (last huts) when buying Roofs Over Heads (2nd huts)
+42178|16586|17|4|17|16586|true  // Unlock Cave when talking to the Moki in front of it
+42178|16586|6|<purple>Clear the Cave Entrance</>\nTalk to Grom to build that Glades upgrade! 
+42178|15068|17|4|17|15068|true  // Unlock Beautify when talking to the Moki above Opher
+42178|15068|6|<purple>The Gorlek Touch</>\nTalk to Grom to build that Glades upgrade!
+42178|51230|17|4|17|51230|true  // Unlock Dwelling Repairs (1st huts) when talking to the Moki near Twillen
+42178|51230|6|<purple>Dwelling Repairs</>\nTalk to Grom to build that Glades upgrade!
+1|115|17|4|1|1115|true          // Unlock Charged Blaze when buying Blaze
+1|116|17|4|1|1116|true          // Unlock Rapid Sentry whe buying Sentry
+1|74|17|4|1|1074|true           // Unlock Exploding Spear when buying Spear
+1|106|17|4|1|1106|true          // Unlock Static Shuriken when buying Shuriken
+1|98|17|4|1|1098|true           // Unlock Shock Smash when buying Hammer
+37858|12379|17|4|1|23|true      // Unlock Water Breathing when completing Wellspring Escape
+42178|5815|17|4|1|105|true      // Unlock Fast Travel when opening the access to Glades
+42178|5815|17|4|2|2|true        // Unlock TripleJump when opening the access to Glades
+42178|5815|17|4|2|19|true       // Unlock LightHarvest when opening the access to Glades 
 
 // Set shops icons
 3|1|17|0|1|115|spell:2016
@@ -509,13 +528,16 @@
 3|1|17|2|17|15068|The Moki are right...building it only half the work. Nothing's quite complete without some #finishing touches# of decoration.
 
 // Set Grom Prices
-3|1|8|17|16826|int|1   // Spirit Well
-3|1|8|17|51231|int|4   // Dwelling Repairs (1st huts)
-3|1|8|17|23608|int|6   // Roofs Over Heads (2nd huts)
-3|1|8|17|40449|int|8   // Onwards and Upwards (last huts)
-3|1|8|17|18752|int|5   // Thorns
-3|1|8|17|16587|int|6   // Cave
-3|1|8|17|15069|int|10  // The Gorlek Touch (bridge)
+3|1|8|17|16826|int|1   // Spirit Well = 1 ore
+3|1|8|17|51231|int|4   // Dwelling Repairs (1st huts) = 4 ores
+3|1|8|17|23608|int|6   // Roofs Over Heads (2nd huts) = 6 ores
+3|1|8|17|40449|int|8   // Onwards and Upwards (last huts) = 8 ores
+3|1|8|17|18752|int|5   // Thorns = 5 ores
+3|1|8|17|16587|int|6   // Cave = 6 ores
+3|1|8|17|15069|int|10  // The Gorlek Touch (bridge) = 10 ores
+
+// Set Willow's map price
+3|1|8|16|14|int|0      // Willow map is free
 
 // *****************************************
 // *** Shop prices depends on difficulty ***
@@ -524,52 +546,68 @@
 3|1|8|9|0|int|1        // Price routine
 
 // Set difficulty price multiplier
-9|0=1|4|17|34543|30984|0|8|9|1|int|1  // Easy   -> price * 1 
-9|0=1|4|17|34543|30984|1|8|9|1|int|2  // Normal -> price * 2
-9|0=1|4|17|34543|30984|2|8|9|1|int|3  // Hard   -> price * 3
+9|0=1|4|17|34543|30984|0|8|9|1|int|1  // Easy -> price multiplier = 1
+9|0=1|4|17|34543|30984|1|8|9|1|int|2  // Normal -> price multiplier = 2
+9|0=1|4|17|34543|30984|2|8|9|1|int|3  // Hard -> price multiplier = 3
 
-/// Multiply 9|1 (price multiplier) with 9|2 (base price), store in 9|3
-9|2|8|9|3|int|0           // Set 9|3 to 0
-9|2|8|9|4|int|$(9|1)      // Set 9|4 to the price multiplier
-9|4|8|9|3|int|+$(9|2)     // Add 9|2 (base price of the item) to the result
-9|4|8|9|4|int|-1          // Decrease 9|4, which execute back the previous line and therefore simulate a for loop
+/// Multiply 9|1 (difficulty price multiplier) with 9|2 (base price), store in 9|3
+/// invokes on setting 9|2. Adds 9|2 (base price) to 9|3 (result) until 9|4 (price multiplier) reaches 0 to simulate a multiplication
+9|2|8|9|3|int|0
+9|2|8|9|4|int|$(9|1)
+9|4|8|9|3|int|+$(9|2)
+9|4|8|9|4|int|-1
 
 /// Set Twillen prices
-9|0=1|8|9|2|int|100
-9|0=1|8|2|126|int|$(9|3)  // Energy = 100 * price multiplier
-9|0=1|8|2|140|int|$(9|3)  // Finesse = 100 * price multiplier
-9|0=1|8|2|122|int|$(9|3)  // Vitality = 100 * price multiplier
-9|0=1|8|2|103|int|$(9|3)  // Wingclip = 100 * price multiplier
-9|0=1|8|9|2|int|125
-9|0=1|8|2|119|int|$(9|3)  // Light Harvest = 125 * price multiplier
-9|0=1|8|9|2|int|150
-9|0=1|8|2|101|int|$(9|3)  // Overcharge = 150 * price multiplier
-9|0=1|8|2|105|int|$(9|3)  // Swap = 150 * price multiplier
-9|0=1|8|9|2|int|1100
-9|0=1|8|2|102|int|$(9|3)  // Triple jump = 1100 * price multiplier
+9|0=1|8|9|2|int|100       // Energy, Finesse, Vitality cost 100 * price multiplier
+9|0=1|8|2|126|int|$(9|3)
+9|0=1|8|2|140|int|$(9|3)
+9|0=1|8|2|122|int|$(9|3)
+9|0=1|8|2|103|int|$(9|3)
+9|0=1|8|9|2|int|125       // Light Harvest cost 125 * price multiplier
+9|0=1|8|2|119|int|$(9|3)
+9|0=1|8|9|2|int|150       // Overcharge, Swap cost 150 * price multiplier
+9|0=1|8|2|101|int|$(9|3)
+9|0=1|8|2|105|int|$(9|3)
+9|0=1|8|9|2|int|1100      // Triple Jump cost 1100 * cost multiplier
+9|0=1|8|2|102|int|$(9|3)
 
-/// Set Opher prices dependant on the first discount
-9|0=1|4|17|3440|20131|0|8|9|2|int|200  // If the player haven't bought anything from Opher, apply a 50% discount
-9|0=1|4|17|3440|20131|1|8|9|2|int|400  // After buying a weapon, the next items are full price
-9|0=1|8|1|10115|int|$(9|3)  // Blaze = (200 or 400) * price multiplier 
-9|0=1|8|1|10116|int|$(9|3)  // Sentry = (200 or 400) * price multiplier 
-9|0=1|8|1|10074|int|$(9|3)  // Spear = (200 or 400) * price multiplier 
-9|0=1|8|1|10098|int|$(9|3)  // Hammer = (200 or 400) * price multiplier 
-9|0=1|8|1|10106|int|$(9|3)  // Shuriken = (200 or 400) * price multiplier 
+/// Set Lupo prices
+9|0=1|8|9|2|int|25       // Marsh map cost 25 * price multiplier 
+9|0=1|8|16|1|int|$(9|3)
+9|0=1|8|9|2|int|50       // Hollow map cost 50 * price multiplier
+9|0=1|8|16|2|int|$(9|3)
+9|0=1|8|9|2|int|75       // Wellspring map cost 75 * price multiplier
+9|0=1|8|16|4|int|$(9|3)
+9|0=1|8|9|2|int|125      // Burrows, Reach, Depths, Pools maps cost 125 * price multiplier
+9|0=1|8|16|5|int|$(9|3)
+9|0=1|8|16|9|int|$(9|3)
+9|0=1|8|16|7|int|$(9|3)
+9|0=1|8|16|8|int|$(9|3)
+9|0=1|8|9|2|int|150      // Wastes map cost 150 * price multiplier
+9|0=1|8|16|11|int|$(9|3)
 
-/// Set Opher prices undependant on the first discount
-9|0=1|8|9|2|int|800
-9|0=1|8|1|11115|int|$(9|3)  // Charge Blaze = 800 * price multiplier
-9|0=1|8|1|11116|int|$(9|3)  // Rapid Sentry = 800 * price multiplier
-9|0=1|8|1|11074|int|$(9|3)  // Exploding Spike = 800 * price multiplier
-9|0=1|8|1|11106|int|$(9|3)  // Static Star = 800 * price multiplier
-9|0=1|8|9|2|int|600
-9|0=1|8|1|11098|int|$(9|3)  // Shock Smash = 600 * price multiplier
-9|0=1|8|9|2|int|250
-9|0=1|8|1|10023|int|$(9|3)  // Water Breath = 250 * price multiplier
-9|0=1|8|1|10105|int|$(9|3)  // Fast Travel = 250 * price multiplier
+/// Set undiscounted Opher prices
+9|0=1|8|9|2|int|800         // Charge Blaze, Rapid Sentry, Exploding Spike, Static Star cost 800 * price multiplier 
+9|0=1|8|1|11115|int|$(9|3)
+9|0=1|8|1|11116|int|$(9|3)
+9|0=1|8|1|11074|int|$(9|3)
+9|0=1|8|1|11106|int|$(9|3)
+9|0=1|8|9|2|int|600        // Shock Smash cost 600 * price multiplier
+9|0=1|8|1|11098|int|$(9|3)
+9|0=1|8|9|2|int|250        // Water Breath, Fast Travel cost 250 * price multiplier
+9|0=1|8|1|10023|int|$(9|3)
+9|0=1|8|1|10105|int|$(9|3)
 
-/// Update when purchasing a wepaon from Opher to remove the discount
+/// Set discounted Opher prices
+9|0=1|4|17|3440|20131|0|8|9|2|int|200  // First weapon cost 400 * 0.5 * price multiplier
+9|0=1|4|17|3440|20131|1|8|9|2|int|400  // Other weapons cost 400 * price multiplier
+9|0=1|8|1|10115|int|$(9|3)
+9|0=1|8|1|10116|int|$(9|3)
+9|0=1|8|1|10074|int|$(9|3)
+9|0=1|8|1|10098|int|$(9|3)
+9|0=1|8|1|10106|int|$(9|3)
+
+/// Remove Opher discount after buying a wepon for the first time
 1|115|8|9|0|int|1
 1|116|8|9|0|int|1
 1|74|8|9|0|int|1
