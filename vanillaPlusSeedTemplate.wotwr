@@ -447,21 +447,23 @@
 3|0|8|48248|57987|int|1
 3|0|8|48248|41666|int|1
 
+
+
 // Lock some shops item at the start
-3|1|17|4|17|16586|false  // Lock Cave
-3|1|17|4|17|15068|false  // Lock Beautify (bridge)
-3|1|17|4|17|51230|false  // Lock Dwelling Repairs (1st huts)
-3|1|17|4|17|23607|false  // Lock Roofs Over Heads (2nd huts)
-3|1|17|4|17|40448|false  // Lock Onwards and Upwards (last huts)
-3|1|17|4|1|1115|false    // Lock Charged Blaze
-3|1|17|4|1|1074|false    // Lock Exploding Spear
-3|1|17|4|1|1098|false    // Lock Shock Smash
-3|1|17|4|1|1116|false    // Lock Rapid Sentry
-3|1|17|4|1|1106|false    // Lock Static Shuriken
-3|1|17|4|1|23|false      // Lock Water Breathing
-3|1|17|4|1|105|false     // Lock Fast Travel
-3|1|17|4|2|2|false       // Lock Triple Jump
-3|1|17|4|2|19|false      // Lock Light Harvest
+3|1|4|17|42178|16586|false|17|4|17|16586|false  // Lock Cave
+3|1|4|17|42178|15068|false|17|4|17|15068|false  // Lock Beautify (bridge)
+3|1|4|17|42178|51230|false|17|4|17|51230|false  // Lock Dwelling Repairs (1st huts)
+3|1|4|17|17|51230|false|17|4|17|23607|false  // Lock Roofs Over Heads (2nd huts)
+3|1|4|17|17|23607|false|17|4|17|40448|false  // Lock Onwards and Upwards (last huts)
+3|1|4|17|1|115|false|17|4|1|1115|false    // Lock Charged Blaze
+3|1|4|17|1|74|false|17|4|1|1074|false    // Lock Exploding Spear
+3|1|4|17|1|98|false|17|4|1|1098|false    // Lock Shock Smash
+3|1|4|17|1|116|false|17|4|1|1116|false    // Lock Rapid Sentry
+3|1|4|17|1|106|false|17|4|1|1106|false    // Lock Static Shuriken
+3|1|4|17|37858|12379|false|17|4|1|23|false      // Lock Water Breathing
+3|1|4|17|42178|5815|false|17|4|1|105|false     // Lock Fast Travel
+3|1|4|17|42178|5815|false|17|4|2|2|false       // Lock Triple Jump
+3|1|4|17|42178|5815|false|17|4|2|19|false      // Lock Light Harvest
 
 // Unlock shop items when doing things
 17|51230|17|4|17|23607|true     // Unlock Roofs Over Heads (2nd huts) when buying Dwelling Repairs (1st huts)
@@ -607,7 +609,7 @@
 9|0=1|8|1|10098|int|$(9|3)
 9|0=1|8|1|10106|int|$(9|3)
 
-/// Remove Opher discount after buying a wepon for the first time
+/// Remove Opher discount after buying a weapon for the first time
 1|115|8|9|0|int|1
 1|116|8|9|0|int|1
 1|74|8|9|0|int|1
